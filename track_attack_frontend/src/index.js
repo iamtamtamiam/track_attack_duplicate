@@ -18,7 +18,12 @@ function createFormHandler(e) {
 
 function postUser(username, password){
     console.log(username, password) //testing input
-    
+    fetch("http://localhost:3000/login", { //is this where i post???
+        // POST request
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(bodyData) //need to take out bodydata...use it to login in
+      })
 }
 
 
