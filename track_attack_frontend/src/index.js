@@ -3,7 +3,27 @@
 document.addEventListener('DOMContentLoaded', () => {
     alert('LOADED');
     getUsers()
+
+    let loginForm = document.querySelector("#login-form")
+    loginForm.addEventListener('submit', (e) => createFormHandler(e))
   });
+
+
+function createFormHandler(e) {
+    e.preventDefault()
+    const usernameInput = document.querySelector("#login-name").value
+    const passwordInput = document.querySelector("#login-password").value
+    postUser(usernameInput, passwordInput)
+}
+
+function postUser(username, password){
+    console.log(username, password) //testing input
+    
+}
+
+
+
+
 
 
 //testing rendering on html
