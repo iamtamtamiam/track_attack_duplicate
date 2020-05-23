@@ -16,14 +16,45 @@ function createFormHandler(e) {
     postUser(usernameInput, passwordInput)
 }
 
-function postUser(username, password){
-    console.log(username, password) //testing input
-    fetch("http://localhost:3000/login", { //is this where i post???
-        // POST request
+function postUser(inputUsername, inputPassword){
+    console.log(inputUsername, inputPassword) //testing input
+    let loginData = {username: inputUsername, password: inputPassword}
+    console.log(loginData)
+
+    let configObj = {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(bodyData) //need to take out bodydata...use it to login in
-      })
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(loginData)
+    };
+    fetch("http://localhost:3000/login", configObj)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(object) {
+        console.log(object);
+    });
+
+
+
+    //fetch("http://localhost:3000/login", { //is this where i post???
+    //    // POST request
+    //    method: "POST",
+    //    headers: {"Content-Type": "application/json"},
+    //    body: JSON.stringify(loginData) //need to take out bodydata...use it to login in
+    //  })
+    //  //.then(response => {
+    //  //  localStorage.setItem("user", JSON.stringify(response.data)); 
+    //  //})
+    //  .then(function(response) {
+    //    return response.json();
+    //  })
+    //  .then(function(json){
+    //      //Use this data inside of `json` to do DOM manipulation
+    //      console.log(json)
+    //  })
 }
 
 
