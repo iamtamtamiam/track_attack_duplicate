@@ -33,8 +33,23 @@ function postUser(inputUsername, inputPassword){
     .then(function(response) {
         return response.json();
     })
-    .then(function(object) {
-        console.log(object);
+    .then(function(json) {
+        console.log(json);
+        var alertButton = document.getElementById("alert-div");
+        if (json.status === 401) {
+          alertButton.setAttribute("class", "alert-wrapper")
+          alertButton.innerText = `Login Failed. Please try again.`
+        }
+        else {
+            console.log(json)
+            //if logged in, hide the failure alert
+            //need to add welcome user and hide signup/login form
+            alertButton.setAttribute("class", "hidden")
+            alertButton.innerText = "" 
+        }
+        //login and then refresh the page so that the login faild doesnt show
+            
+
     });
 
 
