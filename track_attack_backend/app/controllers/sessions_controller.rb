@@ -9,10 +9,11 @@ class SessionsController < ApplicationController
         #else
         #    render json: {message: "Login Failed, Please Try Again!"}
         #end 
-
-        user = User.find_by(username: params[:user][:username])
+        #byebug
+        user = User.find_by(username: params[:username])
         #.try(:authenticate, params["user"]["password"])
-        user.try(:authenticate, params[:user][:password])
+        #user.try(:authenticate, params[:user][:password])
+        
         if user
             session[:user_id] = user.id
             render json: {
