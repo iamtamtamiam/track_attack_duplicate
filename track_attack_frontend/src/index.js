@@ -4,12 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('LOADED');
     getUsers()
 
-    let loginForm = document.querySelector("#login-form")
-    loginForm.addEventListener('submit', (e) => createFormHandler(e))
+    //let loginForm = document.querySelector("#login-form")
+    //loginForm.addEventListener('submit', (e) => createFormHandler(e))
+
+    const loginButton = document.getElementById("login-btn")
+    loginButton.addEventListener('click', (e) => loginFormHandler(e))
+
+    const signupButton = document.getElementById("signup-btn")
+    signupButton.addEventListener('click', (e) => createFormHandler(e))
   });
 
 
-function createFormHandler(e) {
+
+
+function loginFormHandler(e) {
     e.preventDefault()
     const usernameInput = document.querySelector("#login-name").value
     const passwordInput = document.querySelector("#login-password").value
@@ -35,6 +43,7 @@ function postUser(inputUsername, inputPassword){
     })
     .then(function(json) {
         console.log(json);
+           //  localStorage.setItem("user", JSON.stringify(response.data)); 
         var alertButton = document.getElementById("alert-div");
         if (json.status === 401) {
           alertButton.setAttribute("class", "alert-wrapper")
@@ -47,29 +56,9 @@ function postUser(inputUsername, inputPassword){
             alertButton.setAttribute("class", "hidden")
             alertButton.innerText = "" 
         }
-        //login and then refresh the page so that the login faild doesnt show
-            
-
+        //login and then refresh the page so that the login faild doesnt show     
     });
 
-
-
-    //fetch("http://localhost:3000/login", { //is this where i post???
-    //    // POST request
-    //    method: "POST",
-    //    headers: {"Content-Type": "application/json"},
-    //    body: JSON.stringify(loginData) //need to take out bodydata...use it to login in
-    //  })
-    //  //.then(response => {
-    //  //  localStorage.setItem("user", JSON.stringify(response.data)); 
-    //  //})
-    //  .then(function(response) {
-    //    return response.json();
-    //  })
-    //  .then(function(json){
-    //      //Use this data inside of `json` to do DOM manipulation
-    //      console.log(json)
-    //  })
 }
 
 
