@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         #.try(:authenticate, params["user"]["password"])
         #user.try(:authenticate, params[:user][:password])
         
-        if user
+        if user && user.password == params[:password]
             session[:user_id] = user.id
             render json: {
               status: :created,
