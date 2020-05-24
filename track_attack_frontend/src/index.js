@@ -8,66 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     authenticate.login()
     authenticate.signup()
 
-    //* const signupButton = document.getElementById("signup-btn")
-    //* signupButton.addEventListener('click', (e) => signupFormHandler(e))
+    
   });
 
 
-
-//* function signupFormHandler(e) {
-//*     e.preventDefault()
-//*     const usernameInput = document.querySelector("#login-name").value
-//*     const passwordInput = document.querySelector("#login-password").value
-//*     signupUser(usernameInput, passwordInput)
-//* }
-
-
-
-
-//* function signupUser(inputUsername, inputPassword){
-//*     console.log(inputUsername, inputPassword) //testing input
-//*     let signupData = {username: inputUsername, password: inputPassword}
-//*     console.log(signupData)
-//* 
-//*     let configObj = {
-//*         method: "POST",
-//*         headers: {
-//*           "Content-Type": "application/json",
-//*           "Accept": "application/json"
-//*         },
-//*         body: JSON.stringify(signupData)
-//*     };
-//*     fetch("http://localhost:3000/users", configObj)
-//*     .then(function(response) {
-//*         return response.json();
-//*     })
-//*     .then(function(json) {
-//*         console.log(json);
-//*         var alertButton = document.getElementById("alert-div");
-//*         if (json.status === 401) {
-//*           alertButton.setAttribute("class", "alert-wrapper")
-//*           alertButton.innerText = `Login Failed. Please try again. ${json["main"]["username"][0]}`
-//*         }
-//*         else {
-//*         document.getElementById("login-form").style.display="none"
-//*         let weclcomeMessage = document.getElementById("welcome-user")
-//*         weclcomeMessage.innerText = `Welcome ${json["username"]}!`
-//*         }
-//*             
-//*         // var alertButton = document.getElementById("alert-div");
-//*         // if (json.status === 401) {
-//*         //   alertButton.setAttribute("class", "alert-wrapper")
-//*         //   alertButton.innerText = `Login Failed. Please try again.`
-//*         // }
-//*         // else {
-//*         //     console.log(json)
-//*         //     alertButton.setAttribute("class", "hidden")
-//*         //     alertButton.innerText = "" 
-//*         // }
-//*             
-//*     });
-//* 
-//* }
 
 
 
