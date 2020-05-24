@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         #byebug
         if user.save
             session[:user_id] = user.id #need sessions controller and routes
-            render json: user
+            render json: user #should make this match sessions
         else
             render json: {main: user.errors.as_json(full_messages: true), reason: "error!"}
         end

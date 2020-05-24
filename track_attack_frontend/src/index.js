@@ -62,6 +62,10 @@ function postUser(inputUsername, inputPassword){
             //need to add welcome user and hide signup/login form
             alertButton.setAttribute("class", "hidden")
             alertButton.innerText = "" 
+            document.getElementById("login-form").style.display="none"
+            let weclcomeMessage = document.getElementById("welcome-user")
+            weclcomeMessage.innerText = `Welcome ${json["user"]["username"]}!`
+
         }
         //login and then refresh the page so that the login faild doesnt show     
     });
@@ -88,6 +92,9 @@ function signupUser(inputUsername, inputPassword){
     })
     .then(function(json) {
         console.log(json);
+        document.getElementById("login-form").style.display="none"
+        let weclcomeMessage = document.getElementById("welcome-user")
+        weclcomeMessage.innerText = `Welcome ${json["username"]}!`
             
         // var alertButton = document.getElementById("alert-div");
         // if (json.status === 401) {
