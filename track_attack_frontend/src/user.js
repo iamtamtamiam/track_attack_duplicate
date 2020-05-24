@@ -16,7 +16,11 @@ class User {
         let weclcomeMessage = document.getElementById("welcome-user")
             //weclcomeMessage.innerText = `Welcome ${json["user"]["username"]}!`
             weclcomeMessage.innerText = `Welcome ${this.username}!`
-
+        let logoutButton = document.createElement("button")
+        logoutButton.setAttribute("id", "logout-btn")
+        logoutButton.setAttribute("type", "button")
+        logoutButton.innerText = `Logout!`
+        weclcomeMessage.appendChild(logoutButton)
     }
 
 
