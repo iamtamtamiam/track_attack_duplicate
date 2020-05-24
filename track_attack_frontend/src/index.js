@@ -1,14 +1,17 @@
 //const endPoint = "http://localhost:3000/users/characters";
 
+const authenticate = new Authenticate;
+
 document.addEventListener('DOMContentLoaded', () => {
     alert('LOADED');
     getUsers()
+    authenticate.login()
 
     //let loginForm = document.querySelector("#login-form")
     //loginForm.addEventListener('submit', (e) => createFormHandler(e))
 
-    const loginButton = document.getElementById("login-btn")
-    loginButton.addEventListener('click', (e) => loginFormHandler(e))
+    //* const loginButton = document.getElementById("login-btn")
+    //* loginButton.addEventListener('click', (e) => loginFormHandler(e))
 
     const signupButton = document.getElementById("signup-btn")
     signupButton.addEventListener('click', (e) => signupFormHandler(e))
@@ -17,12 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-function loginFormHandler(e) {
-    e.preventDefault()
-    const usernameInput = document.querySelector("#login-name").value
-    const passwordInput = document.querySelector("#login-password").value
-    postUser(usernameInput, passwordInput)
-}
+//* function loginFormHandler(e) {
+//*     e.preventDefault()
+//*     const usernameInput = document.querySelector("#login-name").value
+//*     const passwordInput = document.querySelector("#login-password").value
+//*     postUser(usernameInput, passwordInput)
+//* }
 
 function signupFormHandler(e) {
     e.preventDefault()
@@ -31,46 +34,46 @@ function signupFormHandler(e) {
     signupUser(usernameInput, passwordInput)
 }
 
-function postUser(inputUsername, inputPassword){
-    console.log(inputUsername, inputPassword) //testing input
-    let loginData = {username: inputUsername, password: inputPassword}
-    console.log(loginData)
-
-    let configObj = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(loginData)
-    };
-    fetch("http://localhost:3000/login", configObj)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(json) {
-        console.log(json);
-           //  localStorage.setItem("user", JSON.stringify(response.data)); 
-        var alertButton = document.getElementById("alert-div");
-        if (json.status === 401) {
-          alertButton.setAttribute("class", "alert-wrapper")
-          alertButton.innerText = `Login Failed. Please try again.`
-        }
-        else {
-            console.log(json)
-            //if logged in, hide the failure alert
-            //need to add welcome user and hide signup/login form
-            alertButton.setAttribute("class", "hidden")
-            alertButton.innerText = "" 
-            document.getElementById("login-form").style.display="none"
-            let weclcomeMessage = document.getElementById("welcome-user")
-            weclcomeMessage.innerText = `Welcome ${json["user"]["username"]}!`
-
-        }
-        //login and then refresh the page so that the login faild doesnt show     
-    });
-
-}
+//* function postUser(inputUsername, inputPassword){
+//*     console.log(inputUsername, inputPassword) //testing input
+//*     let loginData = {username: inputUsername, password: inputPassword}
+//*     console.log(loginData)
+//* 
+//*     let configObj = {
+//*         method: "POST",
+//*         headers: {
+//*           "Content-Type": "application/json",
+//*           "Accept": "application/json"
+//*         },
+//*         body: JSON.stringify(loginData)
+//*     };
+//*     fetch("http://localhost:3000/login", configObj)
+//*     .then(function(response) {
+//*         return response.json();
+//*     })
+//*     .then(function(json) {
+//*         console.log(json);
+//*            //  localStorage.setItem("user", JSON.stringify(response.data)); 
+//*         var alertButton = document.getElementById("alert-div");
+//*         if (json.status === 401) {
+//*           alertButton.setAttribute("class", "alert-wrapper")
+//*           alertButton.innerText = `Login Failed. Please try again.`
+//*         }
+//*         else {
+//*             console.log(json)
+//*             //if logged in, hide the failure alert
+//*             //need to add welcome user and hide signup/login form
+//*             alertButton.setAttribute("class", "hidden")
+//*             alertButton.innerText = "" 
+//*             document.getElementById("login-form").style.display="none"
+//*             let weclcomeMessage = document.getElementById("welcome-user")
+//*             weclcomeMessage.innerText = `Welcome ${json["user"]["username"]}!`
+//* 
+//*         }
+//*         //login and then refresh the page so that the login faild doesnt show     
+//*     });
+//* 
+//* }
 
 
 function signupUser(inputUsername, inputPassword){

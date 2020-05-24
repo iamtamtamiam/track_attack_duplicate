@@ -13,6 +13,7 @@ class User {
         //hitdes the login form
         //displays welcome
         console.log(this)
+        var alertButton = document.getElementById("alert-div");
             //if logged in, hide the failure alert
             //need to add welcome user and hide signup/login form
             alertButton.setAttribute("class", "hidden")
