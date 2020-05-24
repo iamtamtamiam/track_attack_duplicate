@@ -12,7 +12,9 @@ class UsersController < ApplicationController
     end 
 
     def create
+        #need to add validations? 
         user = User.new(user_params)
+        #byebug
         if user.save
             session[:user_id] = user.id #need sessions controller and routes
             render json: user
@@ -35,8 +37,9 @@ class UsersController < ApplicationController
 
     private
 
-    def user_params(params)
-        params.require(:employee).permit(:username, :password)
+    def user_params
+        #params.require(:user).permit(:username, :password)
+        params.permit(:username, :password)
     end 
 
 end
