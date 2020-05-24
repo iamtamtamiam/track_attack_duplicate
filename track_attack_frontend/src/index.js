@@ -92,9 +92,16 @@ function signupUser(inputUsername, inputPassword){
     })
     .then(function(json) {
         console.log(json);
+        var alertButton = document.getElementById("alert-div");
+        if (json.status === 401) {
+          alertButton.setAttribute("class", "alert-wrapper")
+          alertButton.innerText = `Login Failed. Please try again. ${json["main"]["username"][0]}`
+        }
+        else {
         document.getElementById("login-form").style.display="none"
         let weclcomeMessage = document.getElementById("welcome-user")
         weclcomeMessage.innerText = `Welcome ${json["username"]}!`
+        }
             
         // var alertButton = document.getElementById("alert-div");
         // if (json.status === 401) {

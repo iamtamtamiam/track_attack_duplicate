@@ -19,7 +19,10 @@ class UsersController < ApplicationController
             session[:user_id] = user.id #need sessions controller and routes
             render json: user #should make this match sessions
         else
-            render json: {main: user.errors.as_json(full_messages: true), reason: "error!"}
+            render json: {
+                status: 401,
+                main: user.errors.as_json(full_messages: true), 
+                reason: "error!"}
         end
     end 
 
