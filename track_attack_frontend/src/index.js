@@ -6,38 +6,28 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('LOADED');
     getUsers()
     authenticate.login()
+    authenticate.signup()
 
-    //let loginForm = document.querySelector("#login-form")
-    //loginForm.addEventListener('submit', (e) => createFormHandler(e))
-
-    //* const loginButton = document.getElementById("login-btn")
-    //* loginButton.addEventListener('click', (e) => loginFormHandler(e))
-
-    const signupButton = document.getElementById("signup-btn")
-    signupButton.addEventListener('click', (e) => signupFormHandler(e))
+    //* const signupButton = document.getElementById("signup-btn")
+    //* signupButton.addEventListener('click', (e) => signupFormHandler(e))
   });
 
 
 
-
-//* function loginFormHandler(e) {
+//* function signupFormHandler(e) {
 //*     e.preventDefault()
 //*     const usernameInput = document.querySelector("#login-name").value
 //*     const passwordInput = document.querySelector("#login-password").value
-//*     postUser(usernameInput, passwordInput)
+//*     signupUser(usernameInput, passwordInput)
 //* }
 
-function signupFormHandler(e) {
-    e.preventDefault()
-    const usernameInput = document.querySelector("#login-name").value
-    const passwordInput = document.querySelector("#login-password").value
-    signupUser(usernameInput, passwordInput)
-}
 
-//* function postUser(inputUsername, inputPassword){
+
+
+//* function signupUser(inputUsername, inputPassword){
 //*     console.log(inputUsername, inputPassword) //testing input
-//*     let loginData = {username: inputUsername, password: inputPassword}
-//*     console.log(loginData)
+//*     let signupData = {username: inputUsername, password: inputPassword}
+//*     console.log(signupData)
 //* 
 //*     let configObj = {
 //*         method: "POST",
@@ -45,81 +35,39 @@ function signupFormHandler(e) {
 //*           "Content-Type": "application/json",
 //*           "Accept": "application/json"
 //*         },
-//*         body: JSON.stringify(loginData)
+//*         body: JSON.stringify(signupData)
 //*     };
-//*     fetch("http://localhost:3000/login", configObj)
+//*     fetch("http://localhost:3000/users", configObj)
 //*     .then(function(response) {
 //*         return response.json();
 //*     })
 //*     .then(function(json) {
 //*         console.log(json);
-//*            //  localStorage.setItem("user", JSON.stringify(response.data)); 
 //*         var alertButton = document.getElementById("alert-div");
 //*         if (json.status === 401) {
 //*           alertButton.setAttribute("class", "alert-wrapper")
-//*           alertButton.innerText = `Login Failed. Please try again.`
+//*           alertButton.innerText = `Login Failed. Please try again. ${json["main"]["username"][0]}`
 //*         }
 //*         else {
-//*             console.log(json)
-//*             //if logged in, hide the failure alert
-//*             //need to add welcome user and hide signup/login form
-//*             alertButton.setAttribute("class", "hidden")
-//*             alertButton.innerText = "" 
-//*             document.getElementById("login-form").style.display="none"
-//*             let weclcomeMessage = document.getElementById("welcome-user")
-//*             weclcomeMessage.innerText = `Welcome ${json["user"]["username"]}!`
-//* 
+//*         document.getElementById("login-form").style.display="none"
+//*         let weclcomeMessage = document.getElementById("welcome-user")
+//*         weclcomeMessage.innerText = `Welcome ${json["username"]}!`
 //*         }
-//*         //login and then refresh the page so that the login faild doesnt show     
+//*             
+//*         // var alertButton = document.getElementById("alert-div");
+//*         // if (json.status === 401) {
+//*         //   alertButton.setAttribute("class", "alert-wrapper")
+//*         //   alertButton.innerText = `Login Failed. Please try again.`
+//*         // }
+//*         // else {
+//*         //     console.log(json)
+//*         //     alertButton.setAttribute("class", "hidden")
+//*         //     alertButton.innerText = "" 
+//*         // }
+//*             
 //*     });
 //* 
 //* }
-
-
-function signupUser(inputUsername, inputPassword){
-    console.log(inputUsername, inputPassword) //testing input
-    let signupData = {username: inputUsername, password: inputPassword}
-    console.log(signupData)
-
-    let configObj = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(signupData)
-    };
-    fetch("http://localhost:3000/users", configObj)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(json) {
-        console.log(json);
-        var alertButton = document.getElementById("alert-div");
-        if (json.status === 401) {
-          alertButton.setAttribute("class", "alert-wrapper")
-          alertButton.innerText = `Login Failed. Please try again. ${json["main"]["username"][0]}`
-        }
-        else {
-        document.getElementById("login-form").style.display="none"
-        let weclcomeMessage = document.getElementById("welcome-user")
-        weclcomeMessage.innerText = `Welcome ${json["username"]}!`
-        }
-            
-        // var alertButton = document.getElementById("alert-div");
-        // if (json.status === 401) {
-        //   alertButton.setAttribute("class", "alert-wrapper")
-        //   alertButton.innerText = `Login Failed. Please try again.`
-        // }
-        // else {
-        //     console.log(json)
-        //     alertButton.setAttribute("class", "hidden")
-        //     alertButton.innerText = "" 
-        // }
-            
-    });
-
-}
 
 
 

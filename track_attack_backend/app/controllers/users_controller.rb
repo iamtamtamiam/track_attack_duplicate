@@ -17,7 +17,13 @@ class UsersController < ApplicationController
         #byebug
         if user.save
             session[:user_id] = user.id #need sessions controller and routes
-            render json: user #should make this match sessions
+            #render json: user #should make this match sessions
+            render json: {
+                status: :created,
+                logged_in: true,
+                user: user,
+                session: session
+            }
         else
             render json: {
                 status: 401,
