@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
               status: :created,
               logged_in: true,
               user: user,
+              current_user: current_user,
               session: session
             }
           else
@@ -30,7 +31,17 @@ class SessionsController < ApplicationController
 
     def destroy
       session.destroy
-      render json: {message: "you are logged out"}
+      #reset_session
+      render json: {
+        session: session,
+        current_user: current_user,
+        message: "you are logged out"}
+    end 
+
+    private
+
+    def current_user
+      @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
     end 
 
 end 

@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getUsers()
     authenticate.login()
     authenticate.signup()
+    //authenticate.logout() no button yet so null
 
     
   });
@@ -43,7 +44,7 @@ console.log("testing...in index.js")
 
 
 //testing rails and js connection with fetch ; added http://
-const BACKEND_URL = 'http://localhost:3000';
-fetch(`${BACKEND_URL}/users/1`)
-  .then(response => response.json())
-  .then(parsedResponse => console.log(parsedResponse));
+//* const BACKEND_URL = 'http://localhost:3000';
+//* fetch(`${BACKEND_URL}/users/1`)
+//*   .then(response => response.json())
+//*   .then(parsedResponse => console.log(parsedResponse));

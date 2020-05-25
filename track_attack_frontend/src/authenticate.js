@@ -98,7 +98,14 @@ class Authenticate {
             });
         
         }
-    }
+    } //end of signup
+
+
+    
+
+
+
+
 
 
 } //end of class
