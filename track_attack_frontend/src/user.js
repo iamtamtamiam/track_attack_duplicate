@@ -50,6 +50,8 @@ class User {
                 console.log(json);
                 weclcomeMessage.innerText = `You have been logged out.`
                 logoutButton.remove()
+                document.getElementById("login-form").reset()
+                document.getElementById("login-form").style.display="block"
 
                 //need to clear the page...change the dashboard
                 //return login form? 
