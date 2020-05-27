@@ -11,12 +11,12 @@ class GamesController < ApplicationController
 
     def create
         game = Game.new(game_params)
-        byebug
-        game.user_id = current_user.id
+        #byebug
+        #game.user_id = current_user.id
         if game.save
             render json: {
                 game: game,
-                user: current_user
+                userfromcont: current_user
             }
         else
             render game.errors.as_json(full_messages: true)

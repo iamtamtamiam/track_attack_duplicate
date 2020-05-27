@@ -27,8 +27,8 @@ class User {
             this.logoutUser()
         })
 
-        const newGame = new Game
-        newGame.createNewGame()
+        const newGame = new Game()
+        newGame.createNewGame(this.id)
 
         
     }
