@@ -19,7 +19,10 @@ class GamesController < ApplicationController
                 userfromcont: current_user
             }
         else
-            render game.errors.as_json(full_messages: true)
+            render json:{
+                status: 401,
+                main: game.errors.as_json(full_messages: true)
+            }
         end
     end
 

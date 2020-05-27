@@ -16,6 +16,8 @@ class Game {
             let gameData = {name: gameNameInput, user_id: userId}
             console.log(gameData) //might have to parse int userId
 
+            let gameAlert = document.getElementById("game-alert-div")
+
             let configObj = {
                 method: "POST",
                 headers: {
@@ -30,30 +32,24 @@ class Game {
             })
             .then(function(json) {
                 console.log(json);
-                   //  localStorage.setItem("user", JSON.stringify(response.data)); 
-                // var alertButton = document.getElementById("alert-div");
-                // if (json.status === 401) {
-                //   alertButton.setAttribute("class", "alert-wrapper")
-                //   alertButton.innerText = `Login Failed. Please try again.`
-                // }
-                // else {
-        // 
-                //     const loggedInUser = new User(json)
-                //     loggedInUser.renderUserWelcomeMessage()
-                // }
-                //login and then refresh the page so that the login faild doesnt show     
+                if (json.status === 401){
+                    gameAlert.setAttribute("class", "alert-wrapper")
+                    gameAlert.innerHTML = `Cannot create game. ${json["main"]}`
+                }
+                else {
+                    console.log(json)
+                }
+
             });
 
-
-
-
-
-
-
-        }
-
+        } //end of postGame
+   
         
-        
-    }
+    } //end of createGame
+
+
+
+
+
 
 }
