@@ -26,6 +26,10 @@ class User {
             e.preventDefault()
             this.logoutUser()
         })
+
+        const newGame = new Game
+        newGame.createNewGame()
+
         
     }
 

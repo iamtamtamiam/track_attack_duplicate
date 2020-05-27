@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getUsers()
     authenticate.login()
     authenticate.signup()
+    
     //authenticate.logout() no button yet so null
 
     
