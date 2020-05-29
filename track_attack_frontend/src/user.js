@@ -86,6 +86,12 @@ class User {
                 let userGames = document.getElementById("user-games")
                 let gameheader = `${game.name}`
                 userGames.append(gameheader)
+
+                let userGamesSelect = document.getElementById("list-user-games")
+                userGamesSelect.innerHTML += `
+                    <option value="${game.id}">${game.name}</option>
+                `
+
             })
         })
 
