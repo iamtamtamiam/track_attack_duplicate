@@ -2,6 +2,14 @@ class GamesController < ApplicationController
 
     def index
         games = Game.all
+        
+        if !params[:user_id]
+            games = Game.all
+        else
+            #need to move scope to model 
+            games = Game.where(user_id: params[:user_id])
+        end
+
         render json: games
     end 
 
@@ -25,6 +33,10 @@ class GamesController < ApplicationController
             }
         end
     end
+
+    def show
+
+    end 
 
 
     private
