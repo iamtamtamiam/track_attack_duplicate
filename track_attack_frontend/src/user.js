@@ -91,6 +91,7 @@ class User {
                 userGamesSelect.innerHTML += `
                     <option value="${game.id}">${game.name}</option>
                 `
+                //add event listener to render or show game and also change gamedisplay()
 
             })
         })

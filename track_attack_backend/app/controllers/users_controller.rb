@@ -2,8 +2,8 @@ class UsersController < ApplicationController
     def index
         users = User.all
         #render json: @users
-        render json: users, only: [:id, :username, :password, :created_at] ##testing rendering w/o serialization
-
+        #render json: users, only: [:id, :username, :password, :created_at] ##testing rendering w/o serialization
+        render json: UserSerializer.new(users)
     end
 
 

@@ -25,17 +25,33 @@ function getUsers(){
     fetch("http://localhost:3000/users")
     .then(res => res.json())
     //.then(json =>console.log(json))
-    .then(users => {
-        users.forEach(user => {
+    .then(function(json){
+        console.log(json)
+        json.data.forEach(user => {
             let experimentingUsers = `
                 <p>${user.id}</p>
-                <p>${user.username}</p>
+                <p>${user["attributes"]["username"]}</p>
             `
-        //document.querySelector(".experimenting").innerHTML += experimentingUsers
+        
         document.querySelector(".experimenting").append(experimentingUsers)
             
-        });
+
+        })
+
+
+
     })
+    // .then(users => {
+    //     users.data.forEach(user => {
+    //         let experimentingUsers = `
+    //             <p>${user.id}</p>
+    //             <p>${user.username}</p>
+    //         `
+    //     //document.querySelector(".experimenting").innerHTML += experimentingUsers
+    //     document.querySelector(".experimenting").append(experimentingUsers)
+    //         
+    //     });
+    // })
 }
 
 
