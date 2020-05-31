@@ -11,6 +11,7 @@ class Game {
         //need hide/reset the create new game
         let gameTitle = document.getElementById("game-title")
         gameTitle.innerText = `Game: ${this.name}`
+        this.gameCharacterOptions()
 
     } //end of rendergamedisplay
 
@@ -61,6 +62,35 @@ class Game {
         });
 
     } // end of postGame
+
+
+    gameCharacterOptions(){
+        //options =[]
+        //fetch all characters and put it in a select form (checkbox)?
+        //render selected options in renderGameDisplay()
+        fetch("http://localhost:3000/characters")
+        .then(res => res.json())
+        .then(function(json){
+            json.forEach(character => {
+                let characterOption = `
+                    <label>
+                        <input type="checkbox" id="${character.id}" name="${character.id}">
+                        ${character.description}
+                    </label>
+                `
+
+                document.getElementById("check-character-options").innerHTML += characterOption
+
+            })
+            
+            
+        })
+
+
+
+    } //end of gameCharacterOptions()
+
+
 
    //*  createNewGame(userId){
    //*      const gameButton = document.getElementById("game-btn")
