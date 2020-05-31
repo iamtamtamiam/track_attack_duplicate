@@ -8,3 +8,10 @@
 
 User.create(username: 'donna', password: 'josie')
 User.create(username: 'mary', password: 'jo')
+
+Character.create(description: 'wolf', image: 'https://publicdomainvectors.org/photos/Loup-cartoon.png')
+Character.create(description: 'penguin', image: 'https://publicdomainvectors.org/photos/Wild-penguin.png')
+Character.create(description: 'octopus', image: 'https://publicdomainvectors.org/photos/oct-.png')
+Character.create(description: 'cow', image: 'https://publicdomainvectors.org/photos/Comic-Cow-Character.png')
+Character.create(description: 'horse', image: 'https://publicdomainvectors.org/en/free-clipart/Funny-horse/49181.html')
+Character.create(description: 'panda', image: 'https://publicdomainvectors.org/photos/Cute-Cartoon-Panda.png')
