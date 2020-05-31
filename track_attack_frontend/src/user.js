@@ -38,6 +38,11 @@ class User {
             e.preventDefault()
             const gameNameInput = document.getElementById("game-name").value
             Game.prototype.postGame(gameNameInput, this.id)
+            //document.getElementById("user-games-form").reset()
+            let userGamesSelect = document.getElementById("list-user-games")
+                userGamesSelect.innerHTML = ""
+            this.getUserGames() //doesn't have newly Added Game!!!
+            //do i need to append new option when creating game instead of fetching again?
         })
 
         
