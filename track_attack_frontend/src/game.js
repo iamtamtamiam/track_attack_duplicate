@@ -42,10 +42,20 @@ class Game {
             }
             else {
                 console.log(json)
+                document.getElementById("post-game-form").reset()
+                //need to getUsergames again...
                 let newGame = new Game(json)
                 console.log(newGame)
                 //this.fetchGames()
                 newGame.renderGameDisplay()
+                
+
+
+                // let gameUser = newGame.getUser()
+                // gameUser.getUserGames()
+
+               
+
             }
 
         });
@@ -99,7 +109,9 @@ class Game {
   //*   } //end of createGame
 
 
-
+    // getUser(){
+    // return User.all.find(user => user.id === this.user_id)
+    // }
 
 
 
