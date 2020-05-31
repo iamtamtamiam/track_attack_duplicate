@@ -5,6 +5,7 @@ const authenticate = new Authenticate;
 document.addEventListener('DOMContentLoaded', () => {
     alert('LOADED');
     getUsers()
+    getAllCharacterImages()
     authenticate.login()
     authenticate.signup()
     
@@ -65,3 +66,22 @@ console.log("testing...in index.js")
 //* fetch(`${BACKEND_URL}/users/1`)
 //*   .then(response => response.json())
 //*   .then(parsedResponse => console.log(parsedResponse));
+
+function getAllCharacterImages(){
+    fetch("http://localhost:3000/characters")
+    .then(res => res.json())
+    //.then(json =>console.log(json))
+    .then(function(json){
+        console.log(json)
+         json.forEach(character => {
+             let characterImages = 
+                 `<img id="${character.id}" name="${character.description}" src="${character.image}" height="500" width="250"></img>`
+             
+         
+        document.querySelector(".all-images").innerHTML += characterImages
+    })
+            
+
+    })
+
+}
