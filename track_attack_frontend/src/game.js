@@ -109,12 +109,18 @@ class Game {
                             console.log(foundCharacter)
                             //then add divs to display character (in rendergame?)
                             let characterHtml = `
+                            <div class="found-character">
+                            <input type="text" id="game-name" name="game_name" placeholder="Enter Player Name.">
+                            <div id="counter">0</div>
+                            <input class="counter-btn" id="heal-btn" type="button" value="Heal(+1)">
+                            <input class="counter-btn" id="attack-btn" type="button" value="Attacked(-1)">
                             <img id="${foundCharacter.id}" name="${foundCharacter.description}" src="${foundCharacter.image}" height="500" width="250"></img>
+                            </div>
                             `
                             document.getElementById("found-character-images").innerHTML += characterHtml
 
                             //add points display
-                            
+
                             //do i need to set found characters to this.characters?
 
                         }
