@@ -4,6 +4,7 @@ class Game {
         this.user_id = gameJson["game"]["user_id"]
         //this.user = gameJson["game"]["user"]
         this.name = gameJson["game"]["name"]
+        this.charaters = []
     }
 
     
@@ -12,6 +13,7 @@ class Game {
         let gameTitle = document.getElementById("game-title")
         gameTitle.innerText = `Game: ${this.name}`
         this.gameCharacterOptions()
+        // this.getSelectedCharacters()
 
     } //end of rendergamedisplay
 
@@ -71,24 +73,78 @@ class Game {
         fetch("http://localhost:3000/characters")
         .then(res => res.json())
         .then(function(json){
+            let charactersArray = []
             json.forEach(character => {
                 let characterOption = `
                     <label>
-                        <input type="checkbox" id="${character.id}" name="${character.id}">
+                        <input type="checkbox" id="${character.id}-option" name="${character.id}">
                         ${character.description}
                     </label>
                 `
 
                 document.getElementById("check-character-options").innerHTML += characterOption
-
+                
+                charactersArray.push(character)
+                
+                //maybe another loop?
+                //     let characterCheckbox = document.getElementById(`${character.id}` + "-option")
+                //     if (characterCheckbox.checked === true){
+                //         console.log(character.description)
+                //     }
+                
             })
             
             
+                const characterSubmitButton = document.getElementById("character-select-btn")
+                characterSubmitButton.addEventListener('click', (e) => {
+                    e.preventDefault()
+                    let grabbedHtml = document.querySelectorAll(`[id*="-option"]`)
+                    grabbedHtml.forEach(option => {
+                        if (option.checked === true){
+                            console.log(option)
+                            alert(`"${option.name}"`)
+                            console.log(charactersArray)
+                             //find c from array by using the option.name
+                            let foundCharacter = charactersArray.find(character => character.id === parseInt(option.name))
+                            console.log(foundCharacter)
+                            //then add divs to display character (in rendergame?)
+                            let characterHtml = `
+                            <img id="${foundCharacter.id}" name="${foundCharacter.description}" src="${foundCharacter.image}" height="500" width="250"></img>
+                            `
+                            document.getElementById("found-character-images").innerHTML += characterHtml
+
+                            //add points display
+                            
+                            //do i need to set found characters to this.characters?
+
+                        }
+                       
+           
+                    })
+                })
+           
+            
+            
         })
-
-
-
     } //end of gameCharacterOptions()
+
+ // getSelectedCharacters(){
+ //     const characterSubmitButton = document.getElementById("character-select-btn")
+ //     characterSubmitButton.addEventListener('click', (e) => {
+ //         e.preventDefault()
+ //         let grabbedHtml = document.querySelectorAll(`[id*="-option"]`)
+ //         grabbedHtml.forEach(option => {
+ //             if (option.checked === true){
+ //                 console.log(option)
+ //             }
+ //             else {
+ //                 alert("did not check")
+ //             }
+// 
+ //         })
+ //     })
+// 
+ //    }
 
 
 
