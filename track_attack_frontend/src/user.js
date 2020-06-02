@@ -1,8 +1,10 @@
 class User {
 
     constructor(userJson){
-        this.id = userJson["user"]["id"]
-        this.username = userJson["user"]["username"] 
+        //this.id = userJson["user"]["id"]
+        this.id = userJson.data.id
+        this.username = userJson.data.attributes.username
+        this.games = userJson.data.attributes.games //[]
     } //call new user when logging in/signup 
 
 
@@ -83,10 +85,10 @@ class User {
 
 
     getUserGames(){
-        fetch("http://localhost:3000/users/" + `${this.id}` + "/games")
-        .then(response => response.json())
-        .then(games => {
-            games.forEach(game =>{
+        //fetch("http://localhost:3000/users/" + `${this.id}` + "/games")
+        //.then(response => response.json())
+        //.then(games => {
+        this.games.forEach(game =>{
                 //let newGame = new Game()
                 let userGames = document.getElementById("user-games")
                 let gameheader = `${game.name}`
@@ -97,12 +99,26 @@ class User {
                     <option value="${game.id}">${game.name}</option>
                 `
                 //add event listener to render or show game and also change gamedisplay()
+    
+            // })
+        })
+        console.log(this) //user
+        const showGameButton = document.getElementById("game-select-btn")
+        showGameButton.addEventListener('click', renderSelectedGame(e))
+    }
 
-            })
+    renderSelectedGame(){
+        document.querySelectorAll("#list-user-games > option").forEach(option => {console.log(option.innerHTML)})
+        const selectionValues = document.querySelectorAll("#list-user-games > option")
+        selectionValues.forEach(option => {
+            console.log(option.innerHTML)
+            if (option.selected === true){
+                console.log(option)
+            }
         })
 
     }
-
-
+    
 
 }
+

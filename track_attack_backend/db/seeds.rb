@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(username: 'donna', password: 'josie')
+d = User.create(username: 'donna', password: 'josie')
 User.create(username: 'mary', password: 'jo')
 
 Character.create(description: 'wolf', image: 'https://publicdomainvectors.org/photos/Loup-cartoon.png')
@@ -14,4 +14,7 @@ Character.create(description: 'penguin', image: 'https://publicdomainvectors.org
 Character.create(description: 'octopus', image: 'https://publicdomainvectors.org/photos/oct-.png')
 Character.create(description: 'cow', image: 'https://publicdomainvectors.org/photos/Comic-Cow-Character.png')
 Character.create(description: 'donkey', image: 'https://publicdomainvectors.org/photos/smilingdonkey.png')
-Character.create(description: 'panda', image: 'https://publicdomainvectors.org/photos/Cute-Cartoon-Panda.png')
+pandaseed = Character.create(description: 'panda', image: 'https://publicdomainvectors.org/photos/Cute-Cartoon-Panda.png')
+
+sgame = d.games.create(name: 'seedgame')
+sgame.selections.create(character_id: pandaseed.id)

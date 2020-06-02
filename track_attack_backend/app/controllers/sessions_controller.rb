@@ -16,13 +16,15 @@ class SessionsController < ApplicationController
         
         if user && user.password == params[:password]
             session[:user_id] = user.id
-            render json: {
-              status: :created,
-              logged_in: true,
-              user: user,
-              current_user: current_user,
-              session: session
-            }
+            #render json: {
+            #  status: :created,
+            #  logged_in: true,
+            #  user: user,
+            #  current_user: current_user,
+            #  session: session
+            #}
+
+            render json: UserSerializer.new(user)
           else
             render json: { status: 401 }
         end
