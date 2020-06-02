@@ -13,6 +13,10 @@ class Game {
         let gameTitle = document.getElementById("game-title")
         gameTitle.innerText = `Game: ${this.name}`
         this.gameCharacterOptions()
+        // let returnedCharacters = this.gameCharacterOptions()
+        // this.charaters.push(returnedCharacters)
+        // console.log(this.charaters)
+        
         // this.getSelectedCharacters()
 
     } //end of rendergamedisplay
@@ -74,6 +78,7 @@ class Game {
         .then(res => res.json())
         .then(function(json){
             let charactersArray = []
+            let selectedCharacters = []
             json.forEach(character => {
                 let characterOption = `
                     <label>
@@ -107,20 +112,32 @@ class Game {
                              //find c from array by using the option.name
                             let foundCharacter = charactersArray.find(character => character.id === parseInt(option.name))
                             console.log(foundCharacter)
+                            selectedCharacters.push(foundCharacter)
+                            console.log(selectedCharacters)
                             //then add divs to display character (in rendergame?)
                             let characterHtml = `
                             <div class="found-character">
                             <input type="text" id="game-name" name="game_name" placeholder="Enter Player Name.">
-                            <div id="counter">0</div>
-                            <input class="counter-btn" id="heal-btn" type="button" value="Heal(+1)">
+                            <div id="counter-${foundCharacter.id}">0</div>
+                            <input class="counter-btn" id="heal-btn-${foundCharacter.id}" type="button" value="Heal(+1)">
                             <input class="counter-btn" id="attack-btn" type="button" value="Attacked(-1)">
                             <img id="${foundCharacter.id}" name="${foundCharacter.description}" src="${foundCharacter.image}" height="500" width="250"></img>
                             </div>
                             `
                             document.getElementById("found-character-images").innerHTML += characterHtml
 
+                            
                             //add points display
-
+                            let characterHealButton = document.getElementById("heal-btn-" + `${foundCharacter.id}`)
+                            characterHealButton.addEventListener('click', (e) =>{
+                                e.preventDefault()
+                                let characterPoints = parseInt(document.getElementById("counter-" + `${foundCharacter.id}`).innerHTML)
+                                let newPoints = characterPoints += 1
+                                document.getElementById("counter-" + `${foundCharacter.id}`).innerHTML = newPoints
+                                
+                            })
+                            
+                            
                             //do i need to set found characters to this.characters?
 
                         }
@@ -129,9 +146,10 @@ class Game {
                     })
                 })
            
-            
+                return selectedCharacters 
             
         })
+        
     } //end of gameCharacterOptions()
 
  // getSelectedCharacters(){
