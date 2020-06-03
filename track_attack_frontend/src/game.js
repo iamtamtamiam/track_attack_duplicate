@@ -1,10 +1,11 @@
 class Game {
     constructor(gameJson){
-        this.id = gameJson["id"]
-        this.user_id = gameJson["user_id"]
+        this.id = gameJson["data"]["id"]
+        this.user_id = gameJson["data"]["attributes"]["user"]["id"]
         //this.user = gameJson["game"]["user"]
-        this.name = gameJson["name"]
-        this.charaters = []
+        this.name = gameJson["data"]["attributes"]["name"]
+        this.selections = gameJson["data"]["attributes"]["selections"]
+        this.charaters = gameJson["data"]["attributes"]["characters"]
     }
 
     

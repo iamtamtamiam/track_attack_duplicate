@@ -10,7 +10,7 @@ class GamesController < ApplicationController
             games = Game.where(user_id: params[:user_id])
         end
 
-        render json: games
+        render json: GameSerializer.new(games)
     end 
 
 
@@ -22,7 +22,7 @@ class GamesController < ApplicationController
         #byebug
         #game.user_id = current_user.id
         if game.save
-            render json: game
+            render json: GameSerializer.new(game)
         else
             render json:{
                 status: 401,
@@ -33,7 +33,7 @@ class GamesController < ApplicationController
 
     def show
         game = Game.find(params[:id]) #need id params from url
-        render json: game
+        render json: GameSerializer.new(game)
 
     end 
 
