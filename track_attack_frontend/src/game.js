@@ -14,7 +14,7 @@ class Game {
         let gameTitle = document.getElementById("game-title")
         gameTitle.innerText = `Game: ${this.name}`
         //* this.gameCharacterOptions()
-
+        document.getElementById("found-character-images").innerHTML = ""
         this.charaters.forEach(character => {
             let characterHtml = `
                 <div class="found-character">
