@@ -7,6 +7,7 @@ class User {
         this.games = userJson.data.attributes.games //[]
         //* this.games = new Games(this.id, userJson.data.attributes.games)
         this.gameAdapter = new GameAdapter
+        this.charactersAdapter = new CharactersAdapter
     } //call new user when logging in/signup 
 
 
@@ -32,6 +33,7 @@ class User {
         })
 
         this.getUserGames()
+        this.renderCreateGameForm()
 
         //* const newGame = new Game()
         //* newGame.createNewGame(this.id)
@@ -142,6 +144,15 @@ class User {
     //     })
 // 
     // }
+
+
+    renderCreateGameForm(){
+        //add character selection options to form
+        //fromcharacterAdapter?
+        //add event listeners
+        //to post the new game
+        this.charactersAdapter.getAllCharacters()
+    }
     
 
 }
