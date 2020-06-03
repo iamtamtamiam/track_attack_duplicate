@@ -1,9 +1,9 @@
 class Game {
     constructor(gameJson){
-        this.id = gameJson["game"]["id"]
-        this.user_id = gameJson["game"]["user_id"]
+        this.id = gameJson["id"]
+        this.user_id = gameJson["user_id"]
         //this.user = gameJson["game"]["user"]
-        this.name = gameJson["game"]["name"]
+        this.name = gameJson["name"]
         this.charaters = []
     }
 

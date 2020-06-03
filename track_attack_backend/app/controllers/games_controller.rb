@@ -22,10 +22,7 @@ class GamesController < ApplicationController
         #byebug
         #game.user_id = current_user.id
         if game.save
-            render json: {
-                game: game,
-                userfromcont: current_user
-            }
+            render json: game
         else
             render json:{
                 status: 401,
@@ -35,6 +32,8 @@ class GamesController < ApplicationController
     end
 
     def show
+        game = Game.find(params[:id]) #need id params from url
+        render json: game
 
     end 
 

@@ -5,6 +5,8 @@ class User {
         this.id = userJson.data.id
         this.username = userJson.data.attributes.username
         this.games = userJson.data.attributes.games //[]
+        //* this.games = new Games(this.id, userJson.data.attributes.games)
+        this.gameAdapter = new GameAdapter
     } //call new user when logging in/signup 
 
 
@@ -40,6 +42,8 @@ class User {
             e.preventDefault()
             const gameNameInput = document.getElementById("game-name").value
             Game.prototype.postGame(gameNameInput, this.id)
+            //const newGame = new Game()
+            //newGame.createNewGame(this.id)
             //document.getElementById("user-games-form").reset()
             let userGamesSelect = document.getElementById("list-user-games")
                 userGamesSelect.innerHTML = ""
@@ -98,26 +102,46 @@ class User {
                 userGamesSelect.innerHTML += `
                     <option value="${game.id}">${game.name}</option>
                 `
+                //* game.getIdForRender()
+
                 //add event listener to render or show game and also change gamedisplay()
-    
+               
+
             // })
         })
         console.log(this) //user
-        const showGameButton = document.getElementById("game-select-btn")
-        showGameButton.addEventListener('click', renderSelectedGame(e))
-    }
+        // const showGameButton = document.getElementById("game-select-btn")
+        //showGameButton.addEventListener('click', this.renderSelectedGame(e))
 
-    renderSelectedGame(){
-        document.querySelectorAll("#list-user-games > option").forEach(option => {console.log(option.innerHTML)})
-        const selectionValues = document.querySelectorAll("#list-user-games > option")
-        selectionValues.forEach(option => {
-            console.log(option.innerHTML)
-            if (option.selected === true){
-                console.log(option)
-            }
+        const showGameButton = document.getElementById("game-select-btn")
+        showGameButton.addEventListener('click', (e) =>{
+            e.preventDefault()
+            document.querySelectorAll("#list-user-games > option").forEach(option => {console.log(option.innerHTML)})
+            const selectionValues = document.querySelectorAll("#list-user-games > option")
+            selectionValues.forEach(option => {
+                console.log(option.innerHTML)
+                if (option.selected === true){
+                    console.log(option)
+                    this.gameAdapter.getIdForRender(option.value)
+
+                }
+            })
         })
 
+
     }
+
+    // renderSelectedGame(e){
+    //     document.querySelectorAll("#list-user-games > option").forEach(option => {console.log(option.innerHTML)})
+    //     const selectionValues = document.querySelectorAll("#list-user-games > option")
+    //     selectionValues.forEach(option => {
+    //         console.log(option.innerHTML)
+    //         if (option.selected === true){
+    //             console.log(option)
+    //         }
+    //     })
+// 
+    // }
     
 
 }
