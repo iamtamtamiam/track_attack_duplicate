@@ -8,6 +8,7 @@ class User {
         //* this.games = new Games(this.id, userJson.data.attributes.games)
         this.gameAdapter = new GameAdapter
         this.charactersAdapter = new CharactersAdapter
+        // this.selectionAdapter = new SelectionAdapter
     } //call new user when logging in/signup 
 
 
@@ -164,6 +165,8 @@ class User {
         e.preventDefault()
         let newGameName = document.getElementById("create-game-name").value
         this.gameAdapter.postGame(newGameName, this.id)
+        
+        
         
 
     }

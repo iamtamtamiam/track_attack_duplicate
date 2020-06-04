@@ -2,6 +2,9 @@ class GameAdapter {
     //use userjson to create new GamesAdapeter
     
     //fetch individual game localhost/games
+    //constructor(){
+    //    this.selectionAdapter = new SelectionAdapter
+    //}
     
 
     getIdForRender(gameOptionId){
@@ -58,6 +61,10 @@ class GameAdapter {
                 let newGame = new Game(json)
                 console.log(newGame)
                 //this.fetchGames()
+                
+                let grabbedHtml = document.querySelectorAll(`[id*="-option"]`)
+                newGame.selectionAdapter.getCheckedCharacters(newGame.id, grabbedHtml) //nodelist
+
                 newGame.renderGameDisplay()
                 
 

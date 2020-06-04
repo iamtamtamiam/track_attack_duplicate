@@ -6,6 +6,7 @@ class Game {
         this.name = gameJson["data"]["attributes"]["name"]
         this.selections = gameJson["data"]["attributes"]["selections"]
         this.charaters = gameJson["data"]["attributes"]["characters"]
+        this.selectionAdapter = new SelectionAdapter
     }
 
     
