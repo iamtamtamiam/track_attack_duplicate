@@ -17,6 +17,7 @@ class SelectionsController < ApplicationController
         #byebug
         if selection.save
             render json: selection
+            
         else
             render json:{
                 status: 401,
@@ -33,7 +34,7 @@ class SelectionsController < ApplicationController
     private
 
     def selection_params
-        params.require(:selection).permit(:character_id)
+        params.require(:selection).permit(:game_id, :character_id)
     end 
 
     def current_user
