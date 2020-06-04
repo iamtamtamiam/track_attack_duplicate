@@ -1,5 +1,7 @@
 class User {
 
+    
+
     constructor(userJson){
         //this.id = userJson["user"]["id"]
         this.id = userJson.data.id

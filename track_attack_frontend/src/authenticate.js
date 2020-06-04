@@ -45,6 +45,8 @@ class Authenticate {
                 else {
         
                     const loggedInUser = new User(json)
+                    User.current = loggedInUser
+                    console.log(User.current)
                     loggedInUser.renderUserWelcomeMessage()
                 }
                 //login and then refresh the page so that the login faild doesnt show     
