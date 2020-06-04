@@ -72,10 +72,9 @@ function getAllCharacterImages(){
     .then(res => res.json())
     //.then(json =>console.log(json))
     .then(function(json){
-        console.log(json)
-         json.forEach(character => {
+         json.data.forEach(character => {
              let characterImages = 
-                 `<img id="${character.id}" name="${character.description}" src="${character.image}" height="500" width="250"></img>`
+                 `<img id="${character.id}" name="${character["attributes"]["description"]}" src="${character["attributes"]["image"]}" height="500" width="250"></img>`
              
          
         document.querySelector(".all-images").innerHTML += characterImages
