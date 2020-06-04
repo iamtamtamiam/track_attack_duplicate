@@ -64,20 +64,23 @@ class GameAdapter {
                 
                 let grabbedHtml = document.querySelectorAll(`[id*="-option"]`)
                 newGame.selectionAdapter.getCheckedCharacters(newGame.id, grabbedHtml) //nodelist
-
-                newGame.renderGameDisplay()
-                
-
+                // console.log(newGame)
+                // newGame.renderGameDisplay()
+                // 
+                // GameAdapter.getIdForRender.call(newGame.id)
 
                 // let gameUser = newGame.getUser()
                 // gameUser.getUserGames()
 
-               
+                //let gameIdForSearch = newGame.id
+                //console.log(gameIdForSearch)
+                //return gameIdForSearch
 
             }
 
         });
 
+        //this.getIdForRender(gameIdForSearch)
     } // end of postGame
 
 }

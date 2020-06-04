@@ -1,5 +1,9 @@
 class SelectionAdapter {
 
+    //constructor(){
+    //    this.gameAdapter.bind = new GameAdapter
+    //}    
+
     getCheckedCharacters(gameId, optionsNodeList){
         optionsNodeList.forEach(option => {
             if (option.checked === true){
@@ -52,12 +56,15 @@ class SelectionAdapter {
         .then(function(json) {
             console.log("this is the selection json back")
             console.log(json)
-
+            let newGameAdapter = new GameAdapter
+            newGameAdapter.getIdForRender(json.game_id)
+            //return json.game_id
+            //this.gameAdapter.getIdForRender(json.game_id)
             //need to render the game
             //use the json to get the game id and render the game?
         })
 
-
+        
 
     }
 
