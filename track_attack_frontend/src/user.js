@@ -166,9 +166,9 @@ class User {
         let newGameName = document.getElementById("create-game-name").value
         this.gameAdapter.postGame(newGameName, this.id)
         
+        //this.getUserGames()
         
         
-
     }
 
 

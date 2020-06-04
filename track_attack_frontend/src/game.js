@@ -27,6 +27,12 @@ class Game {
                 </div>
                 `
             document.getElementById("found-character-images").innerHTML += characterHtml
+
+            let CreateGameForm = document.getElementById("create-game-form")
+            CreateGameForm.reset()
+
+            //this.getUserGames()
+
         })
 
 

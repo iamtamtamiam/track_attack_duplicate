@@ -22,6 +22,9 @@ class GameAdapter {
             console.log(gameJson)
             let gameToRender = new Game(gameJson)
             gameToRender.renderGameDisplay()
+
+            //how do do i get acces to user.js again and renderUserGames?
+
             //need to fix json of the game class constructor
         })
 

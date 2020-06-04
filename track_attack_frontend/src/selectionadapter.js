@@ -62,6 +62,11 @@ class SelectionAdapter {
             //this.gameAdapter.getIdForRender(json.game_id)
             //need to render the game
             //use the json to get the game id and render the game?
+
+            //reset the form
+            
+            //reset the loadUserGames selection
+
         })
 
         
