@@ -36,6 +36,9 @@ class User {
             this.logoutUser()
         })
 
+        
+        document.getElementById("seeded-images").style.display="none"
+
         this.getUserGames()
         this.renderCreateGameForm()
 
@@ -84,7 +87,7 @@ class User {
                 logoutButton.remove()
                 document.getElementById("login-form").reset()
                 document.getElementById("login-form").style.display="block"
-
+                document.getElementById("seeded-images").style.display="block"
                 //need to clear the page...change the dashboard
                 //return login form? 
             
