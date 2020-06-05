@@ -90,7 +90,10 @@ class User {
                 document.getElementById("seeded-images").style.display="block"
                 //need to clear the page...change the dashboard
                 //return login form? 
-            
+                console.log(User.current) // do i need to clear?
+                document.getElementById("list-user-games").innerHTML = ""
+                document.getElementById("logged-in-display").style.display="none"
+
             });
         
         } //end of logout
