@@ -79,8 +79,15 @@ class GameAdapter {
                 //console.log(gameIdForSearch)
                 //return gameIdForSearch
                 console.log(User.current)
+                
+               
+
                 User.current.games.push(newGame)
                 User.current.getUserGames()
+                
+                
+                
+                
                 //need to refresh the bar before getting bar
                 
             }

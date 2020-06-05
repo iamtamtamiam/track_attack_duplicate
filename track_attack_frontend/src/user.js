@@ -97,11 +97,15 @@ class User {
         //fetch("http://localhost:3000/users/" + `${this.id}` + "/games")
         //.then(response => response.json())
         //.then(games => {
+
+        document.getElementById("list-user-games").innerHTML = ""
+
         this.games.forEach(game =>{
                 //let newGame = new Game()
                 let userGames = document.getElementById("user-games")
                 let gameheader = `${game.name}`
                 userGames.append(gameheader)
+
 
                 let userGamesSelect = document.getElementById("list-user-games")
                 userGamesSelect.innerHTML += `
