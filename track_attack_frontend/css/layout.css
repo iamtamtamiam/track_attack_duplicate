@@ -84,3 +84,24 @@ body {
 #item-game-select{
     text-align: center;
 }
+
+
+.grid-container-games{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    margin-top: 20px;
+    height: 500px;
+}
+
+.grid-item-game {
+    background-color: rgba(255, 255, 255, 0.8);
+    /*border: 1px solid rgba(0, 0, 0, 0.8); */
+    overflow: auto;
+    text-align: center;
+    
+}
+
+.display-game-characters {
+    background-color: black;
+}
