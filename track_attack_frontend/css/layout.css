@@ -67,12 +67,18 @@ body {
     border: 3px solid rgb(0, 60, 128);
     background: #c5b43782;
     overflow: auto;
+    padding: 5px;
 }
 
 .box-contents {
-    text-align: center;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
     padding: 5px;
     border: 2px dashed rgb(0, 60, 128);
     background-color: #b3c9d0;
     border-top: whitesmoke;
+}
+
+#item-game-select{
+    text-align: center;
 }

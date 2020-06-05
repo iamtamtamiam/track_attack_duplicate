@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css2?family=Monofett&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Monofett&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/layout.css">
     <script type="application/javascript" src="src/authenticate.js" charset="UTF-8"></script>
     <script type="application/javascript" src="src/index.js" charset="UTF-8"></script>
@@ -70,10 +70,11 @@
 
     <div class="grid-container-user">
 
-      <div class="grid-item">
+      <div class="grid-item" id="item-game-select">
           <div class = "games-container" id="user-games"> <!--sizing-->
-            <div class = "box-title">Select A Previous Game Board</div>
+            <div class = "box-title">Select A Game Board</div>
             <div class = "box-contents">
+              <label>Select a previously created game:</label>
               <form id="user-games-form">
                 <select id="list-user-games" name="user_games">
                 
@@ -91,9 +92,11 @@
         <div class = "box-title">Create A New Game Board</div>
         <div class = "box-contents">
           <form id="create-game-form">
-            <input type="text" id="create-game-name" class="submit-btn" name="create_game_name" placeholder="Enter name for new game 2.">
+            <label>Enter name for new game board: </label>
+            <input type="text" id="create-game-name" class="submit-btn" name="create_game_name" placeholder="board name">
+            <br><label>Select character(s) for game: </label>
             <div id="create-game-characters">
-            
+
             </div>
             <div class="submit" id = "create-game-submit">
               <input class="submit-btn" id="create-game-btn" type="submit" value="Create New Game2">
