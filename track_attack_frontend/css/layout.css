@@ -21,3 +21,49 @@ body {
     width: 50%;
     
 }
+
+/*
+#user-games {
+    width: 376px;
+    float: left;
+    text-align: left;
+    margin: 20px 8px 0px 0px;
+    background-color: darkgoldenrod;
+    overflow: hidden;
+
+}
+
+#create-game {
+    width: 376px;
+    float: right;
+    text-align: left;
+    margin: 20px 0px 0px 0px;
+    background-color: darkgoldenrod;
+    overflow: hidden;
+
+}
+
+*/
+
+.grid-container-user{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+    margin-top: 20px;
+    grid-column-gap: 15px;
+
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    overflow: auto;
+}
+
+.box-title{
+    font-size: 30px;
+    font-family: 'Monofett', cursive;
+    text-align: center;
+    border: 3px solid rgb(0, 60, 128);
+    background: #a2a4a5;
+}

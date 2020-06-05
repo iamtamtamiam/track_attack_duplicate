@@ -67,15 +67,43 @@
     </div>
 
 
-    <div class = "games-container" id="user-games">
-      <form id="user-games-form">
-        <select id="list-user-games" name="user_games">
 
-        </select>
-        <input class="submit-btn" id="game-select-btn" type="submit" value="Show Game">
-      </form>
+    <div class="grid-container-user">
+
+      <div class="grid-item">
+          <div class = "games-container" id="user-games"> <!--sizing-->
+            <div class = "box-title">Select A Previous Game Board</div>
+            <div class = "box-contents">
+              <form id="user-games-form">
+                <select id="list-user-games" name="user_games">
+                
+                </select>
+                <input class="submit-btn" id="game-select-btn" type="submit" value="Show Game">
+              </form>
+            </div>
+          </div>
+      </div>
+
+
+
+    <div class="grid-item">
+      <div class = "form-container" id = "create-game"><!--sizing-->
+        <div class = "box-title">Create A New Game Board</div>
+        <div class = "box-contents">
+          <form id="create-game-form">
+            <input type="text" id="create-game-name" class="submit-btn" name="create_game_name" placeholder="Enter name for new game 2.">
+            <div id="create-game-characters">
+            
+            </div>
+            <div class="submit" id = "create-game-submit">
+              <input class="submit-btn" id="create-game-btn" type="submit" value="Create New Game2">
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
 
+  </div> <!--end of testing grid -->
 
 <!--
     <div id="characterOptions">
@@ -95,17 +123,6 @@
     <br>
 
 
-    <div class = "form-container" id = "create-game">
-      <form id="create-game-form">
-        <input type="text" id="create-game-name" class="submit-btn" name="create_game_name" placeholder="Enter name for new game 2.">
-        <div id="create-game-characters">
-
-        </div>
-        <div class="submit" id = "create-game-submit">
-          <input class="submit-btn" id="create-game-btn" type="submit" value="Create New Game2">
-        </div>
-      </form>
-    </div>
 
 
 </div>
