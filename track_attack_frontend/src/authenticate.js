@@ -93,6 +93,7 @@ class Authenticate {
                 }
                 else {
                     const signedUpUser = new User(json)
+                    User.current = signedUpUser
                     signedUpUser.renderUserWelcomeMessage()
             
                 }
