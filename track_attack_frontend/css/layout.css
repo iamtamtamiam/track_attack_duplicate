@@ -13,6 +13,8 @@ body {
 }
 
 #login {
+    font-size: 30px;
+    font-family: 'Monofett', cursive;
     margin: auto;
     text-align: center;
     border: 5px dashed rgb(0, 60, 128);
