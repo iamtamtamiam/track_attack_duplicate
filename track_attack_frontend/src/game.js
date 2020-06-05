@@ -21,8 +21,8 @@ class Game {
                 <div class="found-character">
                 <input type="text" id="game-name" name="game_name" placeholder="Enter Player Name.">
                 <div id="counter-${character.id}">0</div>
-                <input class="counter-btn" id="heal-btn-${character.id}" type="button" value="Heal(+1)">
-                <input class="counter-btn" id="attack-btn" type="button" value="Attacked(-1)">
+                <input class="counter-btn-heal" id="heal-btn-${character.id}" type="button" value="Heal(+1)">
+                <input class="counter-btn-attack" id="attack-btn-${character.id}" type="button" value="Attacked(-1)">
                 <img id="${character.id}" name="${character.description}" src="${character.image}" height="500" width="250"></img>
                 </div>
                 `
@@ -32,115 +32,40 @@ class Game {
             CreateGameForm.reset()
 
             //this.getUserGames()
-            
-
-            
-
+                
         })
 
-
-        // let returnedCharacters = this.gameCharacterOptions()
-        // this.charaters.push(returnedCharacters)
-        // console.log(this.charaters)
         
-        // this.getSelectedCharacters()
+        let characterHealButtons = document.querySelectorAll(".counter-btn-heal")
+        console.log(characterHealButtons)
+        characterHealButtons.forEach(button => {
+            let buttonId = button.id.slice(-1) //string id number
+            button.addEventListener('click', (e) => {
+                e.preventDefault()
+                let characterPoints = parseInt(document.getElementById("counter-" + `${buttonId}`).innerHTML)
+                let newPoints = characterPoints += 1
+                document.getElementById("counter-" + `${buttonId}`).innerHTML = newPoints
+            })
+        })
 
-        // let characterHealButton = document.getElementById("heal-btn-" + `${foundCharacter.id}`)
-        // characterHealButton.addEventListener('click', (e) =>{
-        //     e.preventDefault()
-        //     let characterPoints = parseInt(document.getElementById("counter-" + `${foundCharacter.id}`).innerHTML)
-        //     let newPoints = characterPoints += 1
-        //     document.getElementById("counter-" + `${foundCharacter.id}`).innerHTML = newPoints
-        //     
-        // })
+        let characterAttackButtons = document.querySelectorAll(".counter-btn-attack")
+        console.log(characterAttackButtons)
+        characterAttackButtons.forEach(button => {
+            let buttonIdA = button.id.slice(-1) //string id number
+            button.addEventListener('click', (e) => {
+                e.preventDefault()
+                let characterPointsA = parseInt(document.getElementById("counter-" + `${buttonIdA}`).innerHTML)
+                let newPointsA = characterPointsA -= 1
+                document.getElementById("counter-" + `${buttonIdA}`).innerHTML = newPointsA
+            })
+        })
+
 
     } //end of rendergamedisplay
 
 
     
 
-
-    gameCharacterOptions(){
-        //options =[]
-        //fetch all characters and put it in a select form (checkbox)?
-        //render selected options in renderGameDisplay()
-        fetch("http://localhost:3000/characters")
-        .then(res => res.json())
-        .then(function(json){
-            let charactersArray = []
-            let selectedCharacters = []
-            json.forEach(character => {
-                let characterOption = `
-                    <label>
-                        <input type="checkbox" id="${character.id}-option" name="${character.id}">
-                        ${character.description}
-                    </label>
-                `
-
-                document.getElementById("check-character-options").innerHTML += characterOption
-                
-                charactersArray.push(character)
-                
-                //maybe another loop?
-                //     let characterCheckbox = document.getElementById(`${character.id}` + "-option")
-                //     if (characterCheckbox.checked === true){
-                //         console.log(character.description)
-                //     }
-                
-            })
-            
-            
-                const characterSubmitButton = document.getElementById("character-select-btn")
-                characterSubmitButton.addEventListener('click', (e) => {
-                    e.preventDefault()
-                    let grabbedHtml = document.querySelectorAll(`[id*="-option"]`)
-                    grabbedHtml.forEach(option => {
-                        if (option.checked === true){
-                            console.log(option)
-                            alert(`"${option.name}"`)
-                            console.log(charactersArray)
-                             //find c from array by using the option.name
-                            let foundCharacter = charactersArray.find(character => character.id === parseInt(option.name))
-                            console.log(foundCharacter)
-                            selectedCharacters.push(foundCharacter)
-                            console.log(selectedCharacters)
-                            //then add divs to display character (in rendergame?)
-                            let characterHtml = `
-                            <div class="found-character">
-                            <input type="text" id="game-name" name="game_name" placeholder="Enter Player Name.">
-                            <div id="counter-${foundCharacter.id}">0</div>
-                            <input class="counter-btn" id="heal-btn-${foundCharacter.id}" type="button" value="Heal(+1)">
-                            <input class="counter-btn" id="attack-btn" type="button" value="Attacked(-1)">
-                            <img id="${foundCharacter.id}" name="${foundCharacter.description}" src="${foundCharacter.image}" height="500" width="250"></img>
-                            </div>
-                            `
-                            document.getElementById("found-character-images").innerHTML += characterHtml
-
-                            
-                            //add points display
-                            let characterHealButton = document.getElementById("heal-btn-" + `${foundCharacter.id}`)
-                            characterHealButton.addEventListener('click', (e) =>{
-                                e.preventDefault()
-                                let characterPoints = parseInt(document.getElementById("counter-" + `${foundCharacter.id}`).innerHTML)
-                                let newPoints = characterPoints += 1
-                                document.getElementById("counter-" + `${foundCharacter.id}`).innerHTML = newPoints
-                                
-                            })
-                            
-                            
-                            //do i need to set found characters to this.characters?
-
-                        }
-                       
-           
-                    })
-                })
-           
-                return selectedCharacters 
-            
-        })
-        
-    } //end of gameCharacterOptions()
 
  // getSelectedCharacters(){
  //     const characterSubmitButton = document.getElementById("character-select-btn")
