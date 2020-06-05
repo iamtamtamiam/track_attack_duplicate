@@ -1,4 +1,23 @@
 .experimenting {
-    font-size: 30px;
-    font-family: 'Monofett', cursive; 
+    font-size: 50px;
+    font-family: 'Monofett', cursive;
+    background: #b3c9d0;
+    border:7px solid rgb(0, 60, 128);
+    color: rgb(0, 60, 128);
+    padding: 7px;
+    text-align: center;
+}
+
+body {
+    background-color: #8b4513ab;
+}
+
+#login {
+    margin: auto;
+    text-align: center;
+    border: 5px dashed rgb(0, 60, 128);
+    background-color: #b3c9d0;
+    padding: 10px;
+    width: 50%;
+    
 }
