@@ -21,6 +21,7 @@ class User {
             alertButton.setAttribute("class", "hidden")
             alertButton.innerText = "" 
         document.getElementById("login-form").style.display="none"
+        document.getElementById("logged-in-display").style.display = "block"
         let weclcomeMessage = document.getElementById("welcome-user")
             //weclcomeMessage.innerText = `Welcome ${json["user"]["username"]}!`
             weclcomeMessage.innerText = `Welcome ${this.username}!`
@@ -103,6 +104,7 @@ class User {
         this.games.forEach(game =>{
                 //let newGame = new Game()
                 let userGames = document.getElementById("user-games")
+                //userGames.style.display = "block"
                 let gameheader = `${game.name}`
                 userGames.append(gameheader)
 
