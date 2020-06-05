@@ -59,7 +59,7 @@ class GameAdapter {
             }
             else {
                 console.log(json)
-                document.getElementById("post-game-form").reset()
+                //document.getElementById("post-game-form").reset()
                 //need to getUsergames again...
                 let newGame = new Game(json)
                 console.log(newGame)

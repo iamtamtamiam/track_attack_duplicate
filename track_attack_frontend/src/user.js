@@ -43,23 +43,23 @@ class User {
         //* newGame.createNewGame(this.id)
 
         //show/hide game form
-        const gameButton = document.getElementById("game-btn")
-        gameButton.addEventListener('click', (e) => {
-            e.preventDefault()
-            const gameNameInput = document.getElementById("game-name").value
-            Game.prototype.postGame(gameNameInput, this.id)
-            //const newGame = new Game()
-            //newGame.createNewGame(this.id)
-            //document.getElementById("user-games-form").reset()
-            let userGamesSelect = document.getElementById("list-user-games")
-                userGamesSelect.innerHTML = ""
-            this.getUserGames() //doesn't have newly Added Game!!!
-            //do i need to append new option when creating game instead of fetching again?
-        })
+      ///R    const gameButton = document.getElementById("game-btn")
+      ///R    gameButton.addEventListener('click', (e) => {
+      ///R        e.preventDefault()
+      ///R        const gameNameInput = document.getElementById("game-name").value
+      ///R        Game.prototype.postGame(gameNameInput, this.id)
+      ///R        //const newGame = new Game()
+      ///R        //newGame.createNewGame(this.id)
+      ///R        //document.getElementById("user-games-form").reset()
+      ///R        let userGamesSelect = document.getElementById("list-user-games")
+      ///R            userGamesSelect.innerHTML = ""
+      ///R        this.getUserGames() //doesn't have newly Added Game!!!
+      ///R        //do i need to append new option when creating game instead of fetching again?
+      ///R    })
 
         
         
-    }
+    } // end of renderWelcome 
 
 
    logoutUser(){
