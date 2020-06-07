@@ -99,9 +99,26 @@ body {
     /*border: 1px solid rgba(0, 0, 0, 0.8); */
     overflow: auto;
     text-align: center;
+    /*display: flex;*/
+    /*flex-direction:column;*/
+    height: 100%;
+    width: auto;
     
 }
+
+/*.grid-item-game>* {
+    flex-grow: 1;
+  }*/
 
 .display-game-characters {
     background-color: black;
 }
+
+.grid-container-games .grid-item-game img{
+    
+    height: 70%
+}
+
+/*
+grid-template-columns: repeat(auto-fit, minmax(250px,1fr))
+*/

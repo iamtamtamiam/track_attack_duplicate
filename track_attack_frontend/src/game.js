@@ -19,13 +19,13 @@ class Game {
         this.charaters.forEach(character => {
             let characterHtml = `
                 <div class="grid-item-game">
-                <div class="found-character">
+                
                 <input type="text" id="game-name" name="game_name" placeholder="Enter Player Name.">
                 <div id="counter-${character.id}">0</div>
                 <input class="counter-btn-heal" id="heal-btn-${character.id}" type="button" value="Heal(+1)">
                 <input class="counter-btn-attack" id="attack-btn-${character.id}" type="button" value="Attacked(-1)">
                 <img id="${character.id}" name="${character.description}" src="${character.image}" height="500" width="250"></img>
-                </div>
+                
                 </div>
                 `
             document.getElementById("container-games").innerHTML += characterHtml
