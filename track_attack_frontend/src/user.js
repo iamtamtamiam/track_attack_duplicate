@@ -130,23 +130,54 @@ class User {
         // const showGameButton = document.getElementById("game-select-btn")
         //showGameButton.addEventListener('click', this.renderSelectedGame(e))
 
+// ------------
+        const selectionValues = document.querySelectorAll("#list-user-games > option")
+
         const showGameButton = document.getElementById("game-select-btn")
-        showGameButton.addEventListener('click', (e) =>{
+         showGameButton.addEventListener('click', (e) =>{
+             e.preventDefault()
+             document.querySelectorAll("#list-user-games > option").forEach(option => {console.log(option.innerHTML)})
+            // const selectionValues = document.querySelectorAll("#list-user-games > option")
+             selectionValues.forEach(option => {
+                 console.log(option.innerHTML)
+                 if (option.selected === true){
+                     console.log(option)
+                     this.gameAdapter.getIdForRender(option.value)
+
+                 }
+             })
+         })
+
+         const deleteGameButton = document.getElementById("game-delete-btn")
+         deleteGameButton.addEventListener('click', (e) =>{
             e.preventDefault()
-            document.querySelectorAll("#list-user-games > option").forEach(option => {console.log(option.innerHTML)})
-            const selectionValues = document.querySelectorAll("#list-user-games > option")
             selectionValues.forEach(option => {
                 console.log(option.innerHTML)
                 if (option.selected === true){
                     console.log(option)
-                    this.gameAdapter.getIdForRender(option.value)
+                    console.log("im going to delete")
+                    console.log(option.value)
+                    this.gameAdapter.getIdForDelete(option.value)
 
                 }
             })
-        })
+
+         })
+    
+
+       
+        
+
+    
 
 
-    }
+
+
+
+        
+
+
+    } // end of get user games
 
     // renderSelectedGame(e){
     //     document.querySelectorAll("#list-user-games > option").forEach(option => {console.log(option.innerHTML)})

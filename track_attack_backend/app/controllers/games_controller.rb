@@ -38,6 +38,21 @@ class GamesController < ApplicationController
     end 
 
 
+    def destroy
+        game = Game.find(params[:id])
+        
+        if game.destroy
+            render json: {
+                status: "game has been deleted"
+            }
+        else
+            render json:{
+                "message": "Not able to destroy!"
+            }
+        end 
+        #byebug
+    end 
+
     private
 
     def game_params
