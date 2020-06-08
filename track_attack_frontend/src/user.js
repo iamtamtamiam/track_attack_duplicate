@@ -95,6 +95,9 @@ class User {
                 console.log(User.current) // do i need to clear?
                 document.getElementById("list-user-games").innerHTML = ""
                 document.getElementById("logged-in-display").style.display="none"
+                document.getElementById("create-game-characters").innerHTML = ""
+
+                
 
             });
         
