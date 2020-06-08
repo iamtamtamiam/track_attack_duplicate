@@ -4,7 +4,7 @@ const authenticate = new Authenticate;
 
 document.addEventListener('DOMContentLoaded', () => {
     alert('LOADED');
-    getUsers()
+    //getUsers()
     getAllCharacterImages()
     authenticate.login()
     authenticate.signup()
@@ -22,38 +22,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //testing rendering on html
-function getUsers(){
-    fetch("http://localhost:3000/users")
-    .then(res => res.json())
-    //.then(json =>console.log(json))
-    .then(function(json){
-        console.log(json)
-        json.data.forEach(user => {
-            let experimentingUsers = `
-                <p>${user.id}</p>
-                <p>${user["attributes"]["username"]}</p>
-            `
-        
-        document.querySelector(".experimenting").append(experimentingUsers)
-            
-
-        })
-
-
-
-    })
-    // .then(users => {
-    //     users.data.forEach(user => {
-    //         let experimentingUsers = `
-    //             <p>${user.id}</p>
-    //             <p>${user.username}</p>
-    //         `
-    //     //document.querySelector(".experimenting").innerHTML += experimentingUsers
-    //     document.querySelector(".experimenting").append(experimentingUsers)
-    //         
-    //     });
-    // })
-}
+// function getUsers(){
+//     fetch("http://localhost:3000/users")
+//     .then(res => res.json())
+//     //.then(json =>console.log(json))
+//     .then(function(json){
+//         console.log(json)
+//         json.data.forEach(user => {
+//             let experimentingUsers = `
+//                 <p>${user.id}</p>
+//                 <p>${user["attributes"]["username"]}</p>
+//             `
+//         
+//         document.querySelector(".experimenting").append(experimentingUsers)
+//             
+// 
+//         })
+// 
+// 
+// 
+//     })
+//     // .then(users => {
+//     //     users.data.forEach(user => {
+//     //         let experimentingUsers = `
+//     //             <p>${user.id}</p>
+//     //             <p>${user.username}</p>
+//     //         `
+//     //     //document.querySelector(".experimenting").innerHTML += experimentingUsers
+//     //     document.querySelector(".experimenting").append(experimentingUsers)
+//     //         
+//     //     });
+//     // })
+// }
 
 
 

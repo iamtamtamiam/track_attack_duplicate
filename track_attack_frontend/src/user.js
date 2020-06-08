@@ -96,7 +96,9 @@ class User {
                 document.getElementById("list-user-games").innerHTML = ""
                 document.getElementById("logged-in-display").style.display="none"
                 document.getElementById("create-game-characters").innerHTML = ""
+                document.getElementById("container-games").innerHTML = ""
 
+                User.current = ""
                 
 
             });
