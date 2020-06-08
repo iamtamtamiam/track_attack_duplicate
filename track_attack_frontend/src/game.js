@@ -16,7 +16,7 @@ class Game {
 
         //need hide/reset the create new game
         let gameTitle = document.getElementById("game-title")
-        gameTitle.innerText = `Game: ${this.name}`
+        gameTitle.innerText = `Showing Game: ${this.name}`
         //* this.gameCharacterOptions()
         document.getElementById("container-games").innerHTML = ""
         this.charaters.forEach(character => {
@@ -109,6 +109,13 @@ class Game {
         let indexOfGameToDelete = User.current.games.indexOf(gameToDelete)
         User.current.games.splice(indexOfGameToDelete, 1)
         console.log(User.current.games)
+
+        let gameTitle = document.getElementById("game-title")
+        gameTitle.innerText = ""
+
+        let buttonToRemove = document.getElementById("shown-game")
+        buttonToRemove.innerHTML = ""
+
         User.current.getUserGames()
         // NEED to clear game name displayed
 

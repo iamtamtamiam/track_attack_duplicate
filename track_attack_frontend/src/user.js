@@ -36,6 +36,8 @@ class User {
             this.logoutUser()
         })
 
+        let gameTitle = document.getElementById("game-title")
+        gameTitle.innerText = `Select a game from the select bar, then click show game to display game below.`
         
         document.getElementById("seeded-images").style.display="none"
 
@@ -109,10 +111,12 @@ class User {
 
         this.games.forEach(game =>{
                 //let newGame = new Game()
-                let userGames = document.getElementById("user-games")
+                
                 //userGames.style.display = "block"
-                let gameheader = `${game.name}`
-                userGames.append(gameheader)
+
+                //let userGames = document.getElementById("user-games")
+                //let gameheader = `${game.name}`
+                //userGames.append(gameheader)
 
 
                 let userGamesSelect = document.getElementById("list-user-games")
