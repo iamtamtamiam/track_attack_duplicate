@@ -11,6 +11,9 @@ class Game {
 
     
     renderGameDisplay(){
+        //reset the shown Game Box:
+        document.getElementById("shown-game").innerHTML = ""
+
         //need hide/reset the create new game
         let gameTitle = document.getElementById("game-title")
         gameTitle.innerText = `Game: ${this.name}`
@@ -62,8 +65,60 @@ class Game {
             })
         })
 
+
+       let deleteGameButton = document.createElement("input")
+       deleteGameButton.setAttribute("class","submit-btn")
+       deleteGameButton.setAttribute("id", "game-delete-btn")
+       deleteGameButton.setAttribute("type", "submit")
+       deleteGameButton.setAttribute("value", "Delete This Game")
+       document.getElementById("shown-game").appendChild(deleteGameButton)
+
+
+        deleteGameButton.addEventListener('click', (e)=>{
+            this.deleteGame(e)
+            //User.current.fetchGamesAfterDeletion()
+        })
+
     } //end of rendergamedisplay
 
 
+    deleteGame(e){
+        e.preventDefault
+        let gameDataForDelete = {game_id: this.id}
+        let configObj = {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(gameDataForDelete)
+        }; 
+        fetch("http://localhost:3000/games/" + `${this.id}`, configObj)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(json) {
+            console.log(json);})
 
+        document.getElementById("container-games").innerHTML = ""
+        //document.getElementById("list-user-games").options[this.id]
+        //User.current.getUserGames()
+        //need to either remove selection or redo the fetch..
+        //User.current.fetchGamesAfterDeletion()
+        let gameToDelete = User.current.games.find(element => element.id == this.id)
+        let indexOfGameToDelete = User.current.games.indexOf(gameToDelete)
+        User.current.games.splice(indexOfGameToDelete, 1)
+        console.log(User.current.games)
+        User.current.getUserGames()
+        // NEED to clear game name displayed
+
+    }
+
+   
+
+    
+    //clear game dashboard
+    //get user games again...
+
+    
 }

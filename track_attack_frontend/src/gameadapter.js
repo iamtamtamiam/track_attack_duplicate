@@ -98,24 +98,24 @@ class GameAdapter {
     } // end of postGame
 
 
-    getIdForDelete(gameOptionId){
-        console.log(gameOptionId)
-        let gameDataForDelete = {game_id: gameOptionId}
-        let configObj = {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-              "Accept": "application/json"
-            },
-            body: JSON.stringify(gameDataForDelete)
-        }; 
-        fetch("http://localhost:3000/games/" + `${gameOptionId}`, configObj)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(json) {
-            console.log(json);})
-    }
+   //  getIdForDelete(gameOptionId){
+   //      console.log(gameOptionId)
+   //      let gameDataForDelete = {game_id: gameOptionId}
+   //      let configObj = {
+   //          method: "DELETE",
+   //          headers: {
+   //            "Content-Type": "application/json",
+   //            "Accept": "application/json"
+   //          },
+   //          body: JSON.stringify(gameDataForDelete)
+   //      }; 
+   //      fetch("http://localhost:3000/games/" + `${gameOptionId}`, configObj)
+   //      .then(function(response) {
+   //          return response.json();
+   //      })
+   //      .then(function(json) {
+   //          console.log(json);})
+   //  }
     
 
 }

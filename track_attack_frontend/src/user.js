@@ -131,13 +131,13 @@ class User {
         //showGameButton.addEventListener('click', this.renderSelectedGame(e))
 
 // ------------
-        const selectionValues = document.querySelectorAll("#list-user-games > option")
+        //const selectionValues = document.querySelectorAll("#list-user-games > option")
 
         const showGameButton = document.getElementById("game-select-btn")
          showGameButton.addEventListener('click', (e) =>{
              e.preventDefault()
              document.querySelectorAll("#list-user-games > option").forEach(option => {console.log(option.innerHTML)})
-            // const selectionValues = document.querySelectorAll("#list-user-games > option")
+             const selectionValues = document.querySelectorAll("#list-user-games > option")
              selectionValues.forEach(option => {
                  console.log(option.innerHTML)
                  if (option.selected === true){
@@ -148,21 +148,21 @@ class User {
              })
          })
 
-         const deleteGameButton = document.getElementById("game-delete-btn")
-         deleteGameButton.addEventListener('click', (e) =>{
-            e.preventDefault()
-            selectionValues.forEach(option => {
-                console.log(option.innerHTML)
-                if (option.selected === true){
-                    console.log(option)
-                    console.log("im going to delete")
-                    console.log(option.value)
-                    this.gameAdapter.getIdForDelete(option.value)
-
-                }
-            })
-
-         })
+         // const deleteGameButton = document.getElementById("game-delete-btn")
+         // deleteGameButton.addEventListener('click', (e) =>{
+         //    e.preventDefault()
+         //    selectionValues.forEach(option => {
+         //        console.log(option.innerHTML)
+         //        if (option.selected === true){
+         //            console.log(option)
+         //            console.log("im going to delete")
+         //            console.log(option.value)
+         //            this.gameAdapter.getIdForDelete(option.value)
+// 
+         //        }
+         //    })
+// 
+         // })
     
 
        
@@ -214,6 +214,18 @@ class User {
         //this.getUserGames()
         
         
+    }
+
+    fetchGamesAfterDeletion(){
+        fetch("http://localhost:3000/users/" + `${this.id}` + "/games")
+        .then(response => response.json())
+        .then(function(json) {
+           User.current.games = json
+        })
+        //reload usergames to dashboard
+                    
+        this.getUserGames()
+
     }
 
 
