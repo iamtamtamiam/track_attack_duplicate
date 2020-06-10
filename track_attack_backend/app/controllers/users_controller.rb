@@ -7,9 +7,9 @@ class UsersController < ApplicationController
     end
 
 
-    def new
-        @user = User.new
-    end 
+    #def new
+    #    @user = User.new
+    #end 
 
     def create
         #need to add validations? 

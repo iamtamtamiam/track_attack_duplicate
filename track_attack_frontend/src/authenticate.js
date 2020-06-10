@@ -7,7 +7,7 @@ class Authenticate {
         const loginButton = document.getElementById("login-btn")
         //loginButton.addEventListener('click', (e) => loginFormHandler(e))
 
-        //function loginFormHandler(e) {
+        ///function loginFormHandler(e) {
         
         loginButton.addEventListener('click', (e) => {
             e.preventDefault()
@@ -16,6 +16,7 @@ class Authenticate {
             postUser(usernameInput, passwordInput)
         })
     
+
 
         function postUser(inputUsername, inputPassword){
             console.log(inputUsername, inputPassword) //testing input
@@ -44,7 +45,8 @@ class Authenticate {
                 }
                 else {
         
-                    const loggedInUser = new User(json)
+                    let loggedInUser = new User(json)
+                    console.log(loggedInUser)
                     User.current = loggedInUser
                     console.log(User.current)
                     loggedInUser.renderUserWelcomeMessage()

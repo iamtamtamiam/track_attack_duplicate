@@ -13,8 +13,8 @@ class GameAdapter {
         // in games_controller show?
         //then use that json for new Game
         //to render the game...
-        console.log("this is the game optionid in adapter")
-        console.log(gameOptionId)
+        //console.log("this is the game optionid in adapter")
+        //console.log(gameOptionId)
 
         fetch("http://localhost:3000/games/" + `${gameOptionId}`)
         .then(response => response.json())
@@ -33,7 +33,7 @@ class GameAdapter {
 
 
     postGame(gameNameInput, userId){
-        console.log(gameNameInput, userId)
+        //console.log(gameNameInput, userId)
         let gameData = {name: gameNameInput, user_id: userId}
         console.log(gameData) //might have to parse int userId
 
@@ -52,7 +52,7 @@ class GameAdapter {
             return response.json();
         })
         .then(function(json) {
-            console.log(json);
+            //console.log(json);
             if (json.status === 401){
                 gameAlert.setAttribute("class", "alert-wrapper")
                 gameAlert.innerHTML = `Cannot create game. ${json["main"]}`
@@ -83,6 +83,8 @@ class GameAdapter {
                
 
                 User.current.games.push(newGame)
+                //newGame["Game"]
+                console.log(User.current.games)
                 User.current.getUserGames()
                 
                 

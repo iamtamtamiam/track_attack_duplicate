@@ -44,24 +44,6 @@ class User {
         this.getUserGames()
         this.renderCreateGameForm()
 
-        //* const newGame = new Game()
-        //* newGame.createNewGame(this.id)
-
-        //show/hide game form
-      ///R    const gameButton = document.getElementById("game-btn")
-      ///R    gameButton.addEventListener('click', (e) => {
-      ///R        e.preventDefault()
-      ///R        const gameNameInput = document.getElementById("game-name").value
-      ///R        Game.prototype.postGame(gameNameInput, this.id)
-      ///R        //const newGame = new Game()
-      ///R        //newGame.createNewGame(this.id)
-      ///R        //document.getElementById("user-games-form").reset()
-      ///R        let userGamesSelect = document.getElementById("list-user-games")
-      ///R            userGamesSelect.innerHTML = ""
-      ///R        this.getUserGames() //doesn't have newly Added Game!!!
-      ///R        //do i need to append new option when creating game instead of fetching again?
-      ///R    })
-
         
         
     } // end of renderWelcome 
@@ -98,11 +80,16 @@ class User {
                 document.getElementById("create-game-characters").innerHTML = ""
                 document.getElementById("container-games").innerHTML = ""
 
-                User.current = ""
+               
+
+                //User.current = ""
                 
 
             });
-        
+            User.current =""
+            console.log(this)
+            console.log(User.current)
+            location.reload()
         } //end of logout
 
 
@@ -116,39 +103,24 @@ class User {
 
         this.games.forEach(game =>{
                 //let newGame = new Game()
-                
-                //userGames.style.display = "block"
-
-                //let userGames = document.getElementById("user-games")
-                //let gameheader = `${game.name}`
-                //userGames.append(gameheader)
-
-
+              
                 let userGamesSelect = document.getElementById("list-user-games")
                 userGamesSelect.innerHTML += `
                     <option value="${game.id}">${game.name}</option>
                 `
                 //* game.getIdForRender()
-
                 //add event listener to render or show game and also change gamedisplay()
-               
-
-            // })
         })
         console.log(this) //user
-        // const showGameButton = document.getElementById("game-select-btn")
-        //showGameButton.addEventListener('click', this.renderSelectedGame(e))
-
-// ------------
-        //const selectionValues = document.querySelectorAll("#list-user-games > option")
+        
 
         const showGameButton = document.getElementById("game-select-btn")
          showGameButton.addEventListener('click', (e) =>{
              e.preventDefault()
-             document.querySelectorAll("#list-user-games > option").forEach(option => {console.log(option.innerHTML)})
+             //document.querySelectorAll("#list-user-games > option").forEach(option => {console.log(option.innerHTML)})
              const selectionValues = document.querySelectorAll("#list-user-games > option")
              selectionValues.forEach(option => {
-                 console.log(option.innerHTML)
+                 //console.log(option.innerHTML)
                  if (option.selected === true){
                      console.log(option)
                      this.gameAdapter.getIdForRender(option.value)
@@ -157,48 +129,8 @@ class User {
              })
          })
 
-         // const deleteGameButton = document.getElementById("game-delete-btn")
-         // deleteGameButton.addEventListener('click', (e) =>{
-         //    e.preventDefault()
-         //    selectionValues.forEach(option => {
-         //        console.log(option.innerHTML)
-         //        if (option.selected === true){
-         //            console.log(option)
-         //            console.log("im going to delete")
-         //            console.log(option.value)
-         //            this.gameAdapter.getIdForDelete(option.value)
-// 
-         //        }
-         //    })
-// 
-         // })
-    
-
-       
-        
-
-    
-
-
-
-
-
-        
-
 
     } // end of get user games
-
-    // renderSelectedGame(e){
-    //     document.querySelectorAll("#list-user-games > option").forEach(option => {console.log(option.innerHTML)})
-    //     const selectionValues = document.querySelectorAll("#list-user-games > option")
-    //     selectionValues.forEach(option => {
-    //         console.log(option.innerHTML)
-    //         if (option.selected === true){
-    //             console.log(option)
-    //         }
-    //     })
-// 
-    // }
 
 
     renderCreateGameForm(){
@@ -220,24 +152,7 @@ class User {
         let newGameName = document.getElementById("create-game-name").value
         this.gameAdapter.postGame(newGameName, this.id)
         
-        //this.getUserGames()
-        
-        
+        //this.getUserGames()  
     }
-
-    fetchGamesAfterDeletion(){
-        fetch("http://localhost:3000/users/" + `${this.id}` + "/games")
-        .then(response => response.json())
-        .then(function(json) {
-           User.current.games = json
-        })
-        //reload usergames to dashboard
-                    
-        this.getUserGames()
-
-    }
-
-
 
 }
-

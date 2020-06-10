@@ -3,7 +3,7 @@
 const authenticate = new Authenticate;
 
 document.addEventListener('DOMContentLoaded', () => {
-    alert('LOADED');
+    //alert('LOADED');
     //getUsers()
     getAllCharacterImages()
     authenticate.login()

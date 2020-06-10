@@ -8,10 +8,8 @@ class SelectionAdapter {
         optionsNodeList.forEach(option => {
             if (option.checked === true){
                 console.log(option)
-                alert(`"${option.name}"`)
-                console.log("this is the game id")
-                console.log(gameId)
-                console.log(this)
+                //alert(`"${option.name}"`)
+               
                 this.postSelection(gameId, option)
                 
                 //pull a game id
@@ -54,7 +52,7 @@ class SelectionAdapter {
             return response.json();
         })
         .then(function(json) {
-            console.log("this is the selection json back")
+            //console.log("this is the selection json back")
             console.log(json)
             let newGameAdapter = new GameAdapter
             newGameAdapter.getIdForRender(json.game_id)

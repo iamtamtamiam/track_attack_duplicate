@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
             #  current_user: current_user,
             #  session: session
             #}
-
+            #byebug
             render json: UserSerializer.new(user)
           else
             render json: { status: 401 }
@@ -35,7 +35,7 @@ class SessionsController < ApplicationController
       session.destroy
       #reset_session
       render json: {
-        session: session,
+        session: session[:user_id],
         current_user: current_user,
         message: "you are logged out"}
     end 

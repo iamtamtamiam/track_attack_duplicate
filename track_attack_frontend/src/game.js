@@ -42,7 +42,7 @@ class Game {
 
         
         let characterHealButtons = document.querySelectorAll(".counter-btn-heal")
-        console.log(characterHealButtons)
+        //console.log(characterHealButtons)
         characterHealButtons.forEach(button => {
             let buttonId = button.id.slice(-1) //string id number
             button.addEventListener('click', (e) => {
@@ -54,7 +54,7 @@ class Game {
         })
 
         let characterAttackButtons = document.querySelectorAll(".counter-btn-attack")
-        console.log(characterAttackButtons)
+        //console.log(characterAttackButtons)
         characterAttackButtons.forEach(button => {
             let buttonIdA = button.id.slice(-1) //string id number
             button.addEventListener('click', (e) => {
