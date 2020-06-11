@@ -97,6 +97,14 @@ body {
     padding: 10px;
     margin-top: 20px;
     height: 500px;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    grid-column-end: auto;
+    border: 5px dashed rgb(0, 60, 128);
+
+    /*grid-column-end: auto;
+    grid-auto-flow: column;
+    justify-content: space-evenly;*/
 }
 
 .grid-item-game {
@@ -138,7 +146,8 @@ body {
 
 .grid-container-games .grid-item-game img{
     
-    height: 70%
+    height: 70%;
+    width: 70%;
 }
 
 /*
@@ -147,3 +156,7 @@ original blue: #b3c9d0
 #ccc279e8
 grid-template-columns: repeat(auto-fit, minmax(250px,1fr))
 */
+
+#seeded-images{
+    text-align: center;
+}

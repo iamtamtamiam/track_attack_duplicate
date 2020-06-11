@@ -14,7 +14,11 @@ Character.create(description: 'penguin', image: 'https://publicdomainvectors.org
 Character.create(description: 'octopus', image: 'https://publicdomainvectors.org/photos/oct-.png')
 Character.create(description: 'cow', image: 'https://publicdomainvectors.org/photos/Comic-Cow-Character.png')
 Character.create(description: 'donkey', image: 'https://publicdomainvectors.org/photos/smilingdonkey.png')
+Character.create(description: 'monkey', image: 'https://publicdomainvectors.org/photos/Cartoon-Monkey.png')
+Character.create(description: 'llama', image: 'https://publicdomainvectors.org/photos/StudioFibonacci-Cartoon-llama.png')
+
 pandaseed = Character.create(description: 'panda', image: 'https://publicdomainvectors.org/photos/Cute-Cartoon-Panda.png')
+
 
 sgame = d.games.create(name: 'seedgame')
 sgame.selections.create(character_id: pandaseed.id)
