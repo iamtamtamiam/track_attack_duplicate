@@ -139,16 +139,28 @@ class User {
         //add event listeners
         //to post the new game
         this.charactersAdapter.getAllCharacters()
-        let createGameButton = document.getElementById("create-game-btn")
-        createGameButton.addEventListener('click', (e)=>{this.createUserGame(e)})
+        let createGameButton = document.getElementById("create-game-form")
+        createGameButton.addEventListener('submit', function(e) {
+            e.preventDefault()
+            User.current.createUserGame()})
+        //let createGameButton = document.getElementById("create-game-form")
+        //createGameButton.addEventListener('submit', function(e) {
+        //    e.preventDefault()
+        //    let newGameName = document.getElementById("create-game-name").value
+        //    debugger
+        //    User.current.gameAdapter.postGame(newGameName, User.current.id)
+        //})
         
-        
+
+        //this.charactersAdapter.getAllCharacters()
+        //let createGameButton = document.getElementById("create-game-btn")
+        //createGameButton.addEventListener('click', (e)=>{this.createUserGame(e)})
     }
     
     //need to add event listener that calls createUserGame
 
-    createUserGame(e){
-        e.preventDefault()
+    createUserGame(){
+        
         let newGameName = document.getElementById("create-game-name").value
         this.gameAdapter.postGame(newGameName, this.id)
         
