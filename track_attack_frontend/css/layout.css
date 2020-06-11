@@ -129,6 +129,13 @@ body {
 
 }
 
+.grid-item-game input[type="text" i]{
+    text-align: center;
+    background-color: #ec9b07;
+    font-weight: bolder;
+    
+}
+
 .grid-container-games .grid-item-game img{
     
     height: 70%
