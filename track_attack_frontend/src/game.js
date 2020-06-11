@@ -47,6 +47,7 @@ class Game {
             let buttonId = button.id.slice(-1) //string id number
             button.addEventListener('click', (e) => {
                 e.preventDefault()
+                this.playHealSound()
                 let characterPoints = parseInt(document.getElementById("counter-" + `${buttonId}`).innerHTML)
                 let newPoints = characterPoints += 1
                 document.getElementById("counter-" + `${buttonId}`).innerHTML = newPoints
@@ -59,6 +60,7 @@ class Game {
             let buttonIdA = button.id.slice(-1) //string id number
             button.addEventListener('click', (e) => {
                 e.preventDefault()
+                this.playAttackSound()
                 let characterPointsA = parseInt(document.getElementById("counter-" + `${buttonIdA}`).innerHTML)
                 let newPointsA = characterPointsA -= 1
                 document.getElementById("counter-" + `${buttonIdA}`).innerHTML = newPointsA
@@ -121,7 +123,17 @@ class Game {
 
     }
 
-   
+   playAttackSound(){
+       //var attackSound = new Audio("./css/sounds/zapslpat_laser.mp3")
+       let attackSound = new Audio("../track_attack_frontend/css/sounds/zapsplat_laser.mp3")
+       //attackSound.currentTime = 0;
+       attackSound.play()
+   }
+
+   playHealSound(){
+    let healSound = new Audio("../track_attack_frontend/css/sounds/zapsplat_ascend.mp3")
+    healSound.play()
+   }
 
     
     //clear game dashboard
