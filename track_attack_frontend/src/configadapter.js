@@ -6,7 +6,7 @@ class ConfigAdapter {
 
     get(restOfURL){
         return fetch(this.baseUrl + restOfURL)
-        .then(resp=> resp.json())
+        .then(resp => resp.json())
          // .then(function(response) {
             //     return response.json();
             // })

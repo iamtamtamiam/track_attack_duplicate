@@ -16,8 +16,10 @@ class GameAdapter {
         //console.log("this is the game optionid in adapter")
         //console.log(gameOptionId)
 
-        fetch("http://localhost:3000/games/" + `${gameOptionId}`)
-        .then(response => response.json())
+        // fetch("http://localhost:3000/games/" + `${gameOptionId}`)
+        // .then(response => response.json())
+        configAdapter.get(`/games/`+ `${gameOptionId}`)
+
         .then(gameJson => {
             console.log(gameJson)
             let gameToRender = new Game(gameJson)
