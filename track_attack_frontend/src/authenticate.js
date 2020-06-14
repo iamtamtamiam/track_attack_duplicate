@@ -23,18 +23,20 @@ class Authenticate {
             let loginData = {username: inputUsername, password: inputPassword}
             console.log(loginData)
         
-            let configObj = {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  "Accept": "application/json"
-                },
-                body: JSON.stringify(loginData)
-            };
-            fetch("http://localhost:3000/login", configObj)
-            .then(function(response) {
-                return response.json();
-            })
+            // let configObj = {
+            //     method: "POST",
+            //     headers: {
+            //       "Content-Type": "application/json",
+            //       "Accept": "application/json"
+            //     },
+            //     body: JSON.stringify(loginData)
+            // };
+            
+            // fetch("http://localhost:3000/login", configObj)
+            // .then(function(response) {
+            //     return response.json();
+            // })
+            configAdapter.post(`/login`, configAdapter.setPostObj(loginData))
             .then(function(json) {
                 console.log(json);
                    //  localStorage.setItem("user", JSON.stringify(response.data)); 

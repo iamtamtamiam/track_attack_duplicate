@@ -1,6 +1,7 @@
 //const endPoint = "http://localhost:3000/users/characters";
 
 const authenticate = new Authenticate;
+const configAdapter = new ConfigAdapter;
 
 document.addEventListener('DOMContentLoaded', () => {
     //alert('LOADED');

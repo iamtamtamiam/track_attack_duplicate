@@ -1,12 +1,15 @@
 class ConfigAdapter {
 
     constructor(){
-        this.baseUrl = 'http://localhost:3000'
+        this.baseUrl = "http://localhost:3000"
     }
 
     get(restOfURL){
         return fetch(this.baseUrl + restOfURL)
         .then(resp=> resp.json())
+         // .then(function(response) {
+            //     return response.json();
+            // })
     }
 
     post(restOfURL, configObj){
@@ -14,7 +17,7 @@ class ConfigAdapter {
         .then(resp => resp.json())
     }
 
-    postObj(data){
+  setPostObj(data){
         let configObj = {
             method: "POST",
             headers: {
