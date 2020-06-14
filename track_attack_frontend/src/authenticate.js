@@ -76,24 +76,27 @@ class Authenticate {
             let signupData = {username: inputUsername, password: inputPassword}
             console.log(signupData)
         
-            let configObj = {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  "Accept": "application/json"
-                },
-                body: JSON.stringify(signupData)
-            };
-            fetch("http://localhost:3000/users", configObj)
-            .then(function(response) {
-                return response.json();
-            })
+            // let configObj = {
+            //     method: "POST",
+            //     headers: {
+            //       "Content-Type": "application/json",
+            //       "Accept": "application/json"
+            //     },
+            //     body: JSON.stringify(signupData)
+            // };
+            configAdapter.setPostObj(signupData)
+            configAdapter.post(`/users`, configAdapter.setPostObj(signupData) )
+
+            // fetch("http://localhost:3000/users", configObj)
+            // .then(function(response) {
+            //     return response.json();
+            // })
             .then(function(json) {
                 console.log(json);
                 var alertButton = document.getElementById("alert-div");
                 if (json.status === 401) {
                   alertButton.setAttribute("class", "alert-wrapper")
-                  alertButton.innerText = `Login Failed. Please try again. ${json["main"]["username"][0]}`
+                  alertButton.innerText = `Please try again. ${json["main"]["username"][0]}`
                 }
                 else {
                     const signedUpUser = new User(json)
