@@ -116,6 +116,10 @@ body {
     /*flex-direction:column;*/
     height: 100%;
     width: auto;
+
+    position: relative;
+    top: 0;
+    left: 0;
     
 }
 
@@ -148,6 +152,17 @@ body {
     
     height: 70%;
     width: 70%;
+
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#trophy{
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    opacity: 90%;
 }
 
 /*
