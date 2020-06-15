@@ -165,6 +165,13 @@ body {
     opacity: 90%;
 }
 
+#winner-instructions{
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    background: #c7b634b0;
+    border: 5px dashed rgb(0, 60, 128);
+    text-align: center;
+}
 /*
 #26cbff
 original blue: #b3c9d0
