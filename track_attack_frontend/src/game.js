@@ -67,6 +67,17 @@ class Game {
             })
         })
 
+        const characterImages = document.querySelectorAll(".grid-container-games .grid-item-game img")
+        characterImages.forEach(character => {
+            character.addEventListener("dblclick", (e) =>{
+                //this.clickingWinner(e)
+                e.preventDefault()
+                this.playWinnerSound()
+
+
+            })
+        })
+
 
        let deleteGameButton = document.createElement("input")
        deleteGameButton.setAttribute("class","submit-btn")
@@ -136,9 +147,18 @@ class Game {
     healSound.play()
    }
 
+   playWinnerSound(){
+    let winnerSound = new Audio("../track_attack_frontend/css/sounds/zapslpat_arcade.mp3")
+    winnerSound.play()
+   }
     
     //clear game dashboard
     //get user games again...
+
+    clickingWinner(e){
+        e.preventDefault()
+        console.log("clicked")
+    }
 
     
 }
