@@ -4,9 +4,9 @@ class User {
 
     constructor(userJson){
         //this.id = userJson["user"]["id"]
-        this.id = userJson.data.id
-        this.username = userJson.data.attributes.username
-        this.games = userJson.data.attributes.games //[]
+        this.id = userJson.user.data.id
+        this.username = userJson.user.data.attributes.username
+        this.games = userJson.user.data.attributes.games //[]
         //* this.games = new Games(this.id, userJson.data.attributes.games)
         this.gameAdapter = new GameAdapter
         this.charactersAdapter = new CharactersAdapter

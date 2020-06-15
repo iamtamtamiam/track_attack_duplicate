@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+    skip_before_action :authorized, only: [:create]
+
     def index
         users = User.all
         #render json: @users
@@ -15,7 +18,14 @@ class UsersController < ApplicationController
         #need to add validations? 
         user = User.new(user_params)
         #byebug
+        #if user.save
         if user.save
+            @token = encode_token(user_id: user.id)
+            render json: { user: UserSerializer.new(user), jwt: @token }, status: :created
+        else
+            render json: { error: 'failed to create user' }, status: :not_acceptable
+        end
+    end
             #session[:user_id] = user.id 
             #render json: user #should make this match sessions
             #render json: {
@@ -25,14 +35,14 @@ class UsersController < ApplicationController
             #    session: session
             #}
 
-            render json: UserSerializer.new(user)
-        else
-            render json: {
-                status: 401,
-                main: user.errors.as_json(full_messages: true), 
-                reason: "error!"}
-        end
-    end 
+            #render json: UserSerializer.new(user)
+    #    else
+    #        render json: {
+    #            status: 401,
+    #            main: user.errors.as_json(full_messages: true), 
+    #            reason: "error!"}
+    #    end
+    #end 
 
 
     def show
@@ -49,8 +59,8 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        #params.require(:user).permit(:username, :password)
-        params.permit(:username, :password)
+        params.require(:user).permit(:username, :password)
+        #params.permit(:username, :password)
     end 
 
 end

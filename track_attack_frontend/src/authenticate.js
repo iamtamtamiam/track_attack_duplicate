@@ -73,7 +73,7 @@ class Authenticate {
 
         function signupUser(inputUsername, inputPassword){
             console.log(inputUsername, inputPassword) //testing input
-            let signupData = {username: inputUsername, password: inputPassword}
+            let signupData = {user:{username: inputUsername, password: inputPassword}}
             console.log(signupData)
         
             // let configObj = {
