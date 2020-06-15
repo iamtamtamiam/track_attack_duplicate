@@ -99,6 +99,7 @@ class Game {
         .then(function(response) {
             return response.json();
         })
+        //configAdapter.post(`/games/`+ `${this.id}`, configObj)
         .then(function(json) {
             console.log(json);})
 

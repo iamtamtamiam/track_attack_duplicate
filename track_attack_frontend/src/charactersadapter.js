@@ -5,8 +5,9 @@ class CharactersAdapter {
     }
 
     getAllCharacters(){
-        fetch("http://localhost:3000/characters")
-        .then(res => res.json())
+        // fetch("http://localhost:3000/characters")
+        // .then(res => res.json())
+        configAdapter.get(`/characters`)
         .then(function(json){
             json.data.forEach(character => {
                 let newCharacter = new Character(character)
