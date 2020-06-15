@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-
+    skip_before_action :authorized
     def index
         games = Game.all
         
@@ -22,6 +22,7 @@ class GamesController < ApplicationController
         #byebug
         #game.user_id = current_user.id
         if game.save
+            
             render json: GameSerializer.new(game)
         else
             render json:{

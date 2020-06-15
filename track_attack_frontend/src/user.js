@@ -10,6 +10,7 @@ class User {
         //* this.games = new Games(this.id, userJson.data.attributes.games)
         this.gameAdapter = new GameAdapter
         this.charactersAdapter = new CharactersAdapter
+        this.userToken = userJson.jwt
         // this.selectionAdapter = new SelectionAdapter
     } //call new user when logging in/signup 
 

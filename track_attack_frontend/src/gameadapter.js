@@ -41,17 +41,18 @@ class GameAdapter {
 
         let gameAlert = document.getElementById("game-alert-div")
 
-        // let configObj = {
-        //     method: "POST",
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //       "Accept": "application/json"
-        //     },
-        //     body: JSON.stringify(gameData)
-        // };
+         let configObj = {
+             method: "POST",
+             headers: {
+                Authorization: `Bearer <token>`,
+               "Content-Type": "application/json",
+               "Accept": "application/json"
+             },
+             body: JSON.stringify(gameData)
+         };
         
-        configAdapter.post(`/games`, configAdapter.setPostObj(gameData))
-        // fetch("http://localhost:3000/games", configObj)
+        //configAdapter.post(`/games`, configAdapter.setPostObj(gameData))
+         fetch("http://localhost:3000/games", configObj)
         // .then(function(response) {
         //     return response.json();
         // })

@@ -20,7 +20,7 @@ class Authenticate {
 
         function postUser(inputUsername, inputPassword){
             console.log(inputUsername, inputPassword) //testing input
-            let loginData = {username: inputUsername, password: inputPassword}
+            let loginData = {user:{username: inputUsername, password: inputPassword}}
             console.log(loginData)
         
             // let configObj = {

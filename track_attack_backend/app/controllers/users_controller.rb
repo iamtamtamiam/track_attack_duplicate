@@ -14,6 +14,10 @@ class UsersController < ApplicationController
     #    @user = User.new
     #end 
 
+    def profile
+        render json: { user: UserSerializer.new(current_user) }, status: :accepted
+      end
+
     def create
         #need to add validations? 
         user = User.new(user_params)
