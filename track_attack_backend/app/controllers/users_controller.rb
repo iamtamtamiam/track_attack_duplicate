@@ -16,7 +16,7 @@ class UsersController < ApplicationController
         user = User.new(user_params)
         #byebug
         if user.save
-            session[:user_id] = user.id #need sessions controller and routes
+            #session[:user_id] = user.id 
             #render json: user #should make this match sessions
             #render json: {
             #    status: :created,
