@@ -39,18 +39,20 @@ class SelectionAdapter {
         //might need to turn value into integer parseInt()
         console.log(selectionData)
 
-        let configObj = {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "Accept": "application/json"
-            },
-            body: JSON.stringify(selectionData)
-        };
-        fetch("http://localhost:3000/selections", configObj)
-        .then(function(response) {
-            return response.json();
-        })
+        // let configObj = {
+        //     method: "POST",
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //       "Accept": "application/json"
+        //     },
+        //     body: JSON.stringify(selectionData)
+        // };
+        
+        configAdapter.post(`/selections`, configAdapter.setPostObj(selectionData))
+        // fetch("http://localhost:3000/selections", configObj)
+        // .then(function(response) {
+        //     return response.json();
+        // })
         .then(function(json) {
             //console.log("this is the selection json back")
             console.log(json)
