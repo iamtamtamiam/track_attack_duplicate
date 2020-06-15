@@ -73,6 +73,11 @@ class Game {
                 //this.clickingWinner(e)
                 e.preventDefault()
                 this.playWinnerSound()
+                character.parentElement.innerHTML += `
+                <img id="trophy" name="trophy" src="https://publicdomainvectors.org/photos/trophy.png">
+                `
+                
+
 
 
             })
